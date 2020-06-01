@@ -5,8 +5,8 @@ default: &default
 
 development:
   <<: *default
-  database: rails-mister-cocktail_development
+  database: secretchef_development
 
 test:
   <<: *default
-  database: rails-mister-cocktail_test
+  database: secretchef_test
