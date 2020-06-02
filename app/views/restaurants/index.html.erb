@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>All our restaurants:</h1>
+  <% @restaurants.each do |restaurant| %>
+    <%= restaurant.name %>
+    <%= restaurant.address %>
+    <%= restaurant.description %>
+  <% end %>
+</div>
