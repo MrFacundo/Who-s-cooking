@@ -1,5 +1,8 @@
-<div class="container">
-  <h2><%= @restaurant.name %></h2>
-  <p><%= @restaurant.address %></p>
-  <p><%= @restaurant.description %></p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'restaurant_banner.jpg' %>)">
+  <div class="container">
+    <h2><%= @restaurant.name %></h2>
+    <p><%= @restaurant.address %></p>
+    <p><%= @restaurant.description %></p>
+  </div>
 </div>
+
