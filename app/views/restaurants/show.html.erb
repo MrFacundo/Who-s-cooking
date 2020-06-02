@@ -6,8 +6,20 @@
   </div>
 </div>
 
-<% @restaurant.meals.each do |meal| %>
+<h1>Our Home Cooking Experiences</h1>
+
 <div class="container">
-  <h2>meal.name</h2>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <% @restaurant.meals.each do |meal| %>
+        <div class="card mb-3 mt-3">
+          <%= image_tag "meal-placeholder.jpg" %>
+          <div class="card-footer">
+            <h3><%= meal.name %></h3>
+            <p><%= restaurant.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>     
 </div>
-<% end %>
