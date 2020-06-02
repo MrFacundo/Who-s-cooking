@@ -1,0 +1,25 @@
+.card-restaurant {
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 600px;
+}
+
+.card-restaurant img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-footer {
+  padding: 30px;
+  text-align: center;
+}
+
+.card-restaurant h3 {
+  margin-bottom: 0;
+}
+
+.card-restaurant p {
+ margin-top: 20px;
+ margin-bottom: 0;
+}

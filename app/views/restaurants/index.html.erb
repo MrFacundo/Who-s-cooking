@@ -1,8 +1,15 @@
 <div class="container">
   <h1>All our restaurants:</h1>
+
   <% @restaurants.each do |restaurant| %>
-    <%= restaurant.name %>
-    <%= restaurant.address %>
-    <%= restaurant.description %>
+    <div class="card-restaurant">
+      <%= image_tag "restaurant.jpg" %>
+      <div class="card-footer">
+        <h3><%= link_to restaurant.name, restaurant_path(restaurant), class: "border-bottom" %></h3>
+        <p><%= restaurant.description %></p>
+      </div>
+    </div>
   <% end %>
+
 </div>
+
