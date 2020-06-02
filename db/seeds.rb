@@ -1,13 +1,11 @@
 Restaurant.destroy_all
 MealCategory.destroy_all
 Meal.destroy_all
-
+Category.destroy_all
+Category.destroy_all
 
 
 ### Categories
-
-
-Category.destroy_all
 
 require 'csv'
 filepath = 'db/categories.csv'
@@ -132,11 +130,18 @@ Meal.create(name: "Aspiring Asparagus", difficulty: 3, prep_time: 120, descripti
 Meal.create(name: "Potential Potato", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
 
 
-
- #Meal Categories
+#### Meal Categories
 
 
 20.times do
   MealCategory.create(meal: Meal.all.sample, category_id: Category.all.sample.id)
 end
+
+
+#### Reviews
+
+5.times do
+  Review.create(content: "Really liked it, great meal", rating: 5)
+end
+
 
