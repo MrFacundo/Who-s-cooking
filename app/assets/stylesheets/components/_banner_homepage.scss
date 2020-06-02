@@ -1,6 +1,11 @@
-.banner {
+.homepage_banner {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   background-size: cover;
   background-position: center;
+<<<<<<< HEAD:app/assets/stylesheets/components/_banner.scss
   padding: 150px 0;
 }
 
@@ -26,6 +31,22 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+=======
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+  }
+  p {
+    color: white;
+    opacity: .8;
+    font-size: 25px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+  }
+}
+
+>>>>>>> master:app/assets/stylesheets/components/_banner_homepage.scss
 .search-form-control {
   position: relative;
   width: 300px;
@@ -48,4 +69,18 @@
   border: 1px solid #1EDD88;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.banner-index {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner-index h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
 }
