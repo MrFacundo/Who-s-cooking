@@ -2,7 +2,7 @@ Restaurant.destroy_all
 MealCategory.destroy_all
 Meal.destroy_all
 Category.destroy_all
-Category.destroy_all
+User.destroy_all
 
 
 ### Categories
