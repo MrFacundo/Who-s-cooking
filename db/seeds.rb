@@ -79,55 +79,55 @@ Chef.create(first_name: "Tanja", last_name: "Spatula", bio: "lived, worked and c
 
 # Meals Chef 1
 
-Meal.create(name: "Delicious dish", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.first, chef: Chef.all.first)
+Meal.create(name: "Delicious dish", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.first, chef: Chef.all.first)
 
-Meal.create(name: "Funny Rice", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.first, chef: Chef.all.first)
+Meal.create(name: "Funny Rice", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.first, chef: Chef.all.first)
 
 
 # Meals Chef 2
 
-Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.second, chef: Chef.all.second)
+Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.second, chef: Chef.all.second)
 
-Meal.create(name: "Empty Plate", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.second, chef: Chef.all.second)
+Meal.create(name: "Empty Plate", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.second, chef: Chef.all.second)
 
 # Meals Chef 3
 
-Meal.create(name: "Fancy Food", difficulty: 2, prep_time: 60, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.third, chef: Chef.all.third)
+Meal.create(name: "Fancy Food", difficulty: 2, prep_time: 60, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.third, chef: Chef.all.third)
 
-Meal.create(name: "Diet Bread", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.third, chef: Chef.all.third)
+Meal.create(name: "Diet Bread", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.third, chef: Chef.all.third)
 
 # Meals Chef 4
 
-Meal.create(name: "Pad Thai", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fourth, chef: Chef.all.fourth)
+Meal.create(name: "Pad Thai", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fourth, chef: Chef.all.fourth)
 
-Meal.create(name: "Fabolous food", difficulty: 2, prep_time: 60, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fourth, chef: Chef.all.fourth)
+Meal.create(name: "Fabolous food", difficulty: 2, prep_time: 60, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fourth, chef: Chef.all.fourth)
 
 # Meals Chef 5
 
-Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
+Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
 
-Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
+Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
 
-Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
+Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
 
 # Meals Chef 6
 
-Meal.create(name: "Very Good Cake", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
+Meal.create(name: "Very Good Cake", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
 
-Meal.create(name: "Scrumptious Sate", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
+Meal.create(name: "Scrumptious Sate", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
 
-Meal.create(name: "Delicious Dorrito", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
+Meal.create(name: "Delicious Dorrito", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
 
 # Meals Chef 7
 
-Meal.create(name: "Tomato à la Toni", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 7"), chef: Chef.find_by(first_name: "Lisa"))
+Meal.create(name: "Tomato à la Toni", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 7"), chef: Chef.find_by(first_name: "Lisa"))
 
-Meal.create(name: "Adventorous Avocado", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 7"), chef: Chef.find_by(first_name: "Lisa"))
+Meal.create(name: "Adventorous Avocado", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 7"), chef: Chef.find_by(first_name: "Lisa"))
 
 # Meals Chef 8
-Meal.create(name: "Aspiring Asparagus", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
+Meal.create(name: "Aspiring Asparagus", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
 
-Meal.create(name: "Potential Potato", difficulty: 3, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
+Meal.create(name: "Potential Potato", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
 
 
 #### Meal Categories
