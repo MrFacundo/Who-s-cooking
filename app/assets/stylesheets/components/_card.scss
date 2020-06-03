@@ -14,6 +14,23 @@
 .card-footer {
   padding: 30px;
   text-align: center;
+
+  .avatar-large {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+}
+
+.card-footer .inactive {
+  color: lightgrey;
+}
+
+.card-footer .prep-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding-top: 0px;
 }
 
 .card h3 {
