@@ -28,21 +28,31 @@
         <div class="card mb-3 mt-3">
           <%= image_tag "meal_placeholder.jpg" %>
           
-          <div class="card-footer">
+          <div class="card-footer pt-0">
 
-            <div class="text-left" id="meal-difficulty">
-              <ul class="list-inline mt-0">
-                <% meal.difficulty.times do %>
-                  <li class="list-inline-item"><i class="fas fa-utensil-spoon"></i></li>
-                <% end %>
-                <% (5-meal.difficulty).times do %>
-                  <li class="list-inline-item inactive"><i class="fas fa-utensil-spoon"></i></li>
-                <% end %>
-              </ul>
+            <div class="prep-info">
+              <p><strong>Difficulty</strong></p>
+              <p><i class="far fa-clock"></i> <strong> Preptime</strong></p>
+            </div>
+
+            <div class="prep-info">
+              <div class="text-left" id="meal-difficulty">
+                <ul class="list-inline mt-0">
+                  <% meal.difficulty.times do %>
+                    <li class="list-inline-item"><i class="fas fa-utensil-spoon"></i></li>
+                  <% end %>
+                  <% (5-meal.difficulty).times do %>
+                    <li class="list-inline-item inactive"><i class="fas fa-utensil-spoon"></i></li>
+                  <% end %>
+                </ul>
+              </div>
+              <div class="text-right" id="preptime">
+                <%= meal.prep_time %> Min.
+              </div>
             </div>
 
             <div class="text-left mt-3" id="meal-description">
-              <h3><%= meal.name %></h3>
+               <h3><%= image_tag "chefs/chef1", class: "avatar-large", alt: "avatar-large" %> <%= meal.name %></h3>
               <p><%= meal.description %></p>
             </div>
 
@@ -59,8 +69,6 @@
                     <li class="list-inline-item"> <i class="fas fa-pepper-hot"></i></li>
                   <% elsif c.name == "Low Carb" %>
                     <li class="list-inline-item"> <i class="fas fa-dumbbell"></i></li>
-                  <% else %>
-                    <%= c.name %>
                   <% end %>
                 <% end %>
               </ul>
