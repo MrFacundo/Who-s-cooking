@@ -1,0 +1,22 @@
+<div class="container mt-5">
+
+  <br>
+  <br>
+  <br>
+  <% @order.order_items.each do |oi| %>
+    <ul>
+    <li><%= oi.meal.name %> <%=  oi.quantity %></li>
+    </ul>
+  <% end %>
+
+  <div class="form">
+    <%= simple_form_for [ @order ] do |f| %>
+      <div class= "form-group">
+        <%= f.input :delivery_time, class: "form-control" %>
+        <%= f.input :delivery_address, class: "form-control" %>
+        <%= f.submit "Submit Order", class: "form-control btn btn-info" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

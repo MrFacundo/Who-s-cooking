@@ -1,0 +1,15 @@
+<div class="container mt-5">
+
+  <ul>
+    <li><%= @order.delivery_time %></li>
+    <li><%= @order.delivery_address %></li>
+    <li><%= @order.restaurant.name %></li>
+    <li><%= @order.user.email %></li>
+  </ul>
+
+  <% @order.order_items.each do |oi| %>
+    <ul>
+      <li><%= oi.meal.name %> <%=  oi.quantity %></li>
+    </ul>
+  <% end %>
+</div>
