@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :meals, only: [:index, :show] do
     resources :order_items, only: [:new, :create]
   end
+
+  resources :orders, only: [:show, :edit, :update]
 end
