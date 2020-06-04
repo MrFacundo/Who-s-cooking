@@ -10,8 +10,7 @@ class MealsController < ApplicationController
 
   def recipe
     @meal = Meal.find(params[:meal_id])
-    @user = current_user
-    @paid_orders = @user.orders.where(paid:true)
+    @paid_orders = current_user.orders.where(paid:true)
     @paid_meals = []
     @paid_orders.each do |o|
       o.order_items.each do |oi|
@@ -23,8 +22,8 @@ class MealsController < ApplicationController
       @recipe = @meal
       render "shared/_recipe"
     else
-      # no access
+      # no access partial or flash
     end
-
   end
+
 end
