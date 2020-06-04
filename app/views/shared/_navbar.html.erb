@@ -13,6 +13,9 @@
     <ul class="navbar-nav mr-2 mt-2 mt-lg-0">
       <% if user_signed_in? %>
         <li class="nav-item">
+          <%= link_to "<i class='fas fa-shopping-cart'></i>".html_safe, root_path, style: "color: #333333; font-size: 25px;", class: "cart p-3" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "My Experiences", root_path, class: "nav-link"  %>
         </li>
         <li class="nav-item">
