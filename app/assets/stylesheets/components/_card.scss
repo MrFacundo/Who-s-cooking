@@ -48,6 +48,7 @@
 
 // Collabsible cards
 
+
 .toggle {
     display: none;
 }
@@ -57,6 +58,7 @@
   background: transparent;
   cursor: pointer;
   transition: all 0.25s ease-out;
+  
 }
 
 .lbl-toggle::before {
