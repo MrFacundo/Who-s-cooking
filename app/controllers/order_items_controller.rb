@@ -21,7 +21,7 @@ class OrderItemsController < ApplicationController
     end
     @order_item.order = @order
     if @order_item.save
-      redirect_to meal_path(@meal), notice: 'Booking was successfully created!'
+      redirect_to meal_path(@meal), notice: 'Order was successfully added!'
     else
       render :new
     end

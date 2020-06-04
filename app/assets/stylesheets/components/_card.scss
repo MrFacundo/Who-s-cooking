@@ -12,9 +12,8 @@
 }
 
 .card-footer {
-  padding: 30px;
   text-align: center;
-
+  border-top: 0px solid rgba(0, 0, 0, 0.125);
   .avatar-large {
     height: 50px;
     width: 50px;
@@ -47,4 +46,50 @@
  margin-bottom: 0;
 }
 
+// Collabsible cards
+
+.toggle {
+    display: none;
+}
+
+.lbl-toggle {
+  color: #333333;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+}
+
+.lbl-toggle::before {
+  content: ' ';
+  display: inline-block;
+
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid currentColor;
+
+  vertical-align: middle;
+  margin-right: .7rem;
+  transform: translateY(-2px);
+
+  transition: transform .2s ease-out;
+}
+
+.collapsible-content {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: 100vh;
+}
+
+.toggle:checked + .lbl-toggle::before {
+  transform: rotate(90deg) translateX(-3px);
+}
+
+.toggle:checked + .lbl-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
 
