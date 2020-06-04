@@ -1,4 +1,9 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'restaurant_banner.jpg' %>); text-align: center;">
+<div class="banner" style= "
+<% if @restaurant.photo.attached? %>
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>); text-align: center;
+<% else %>
+background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'restaurant_banner.jpg' %>); text-align: center;
+<% end %>">
   <div class="container">
     <h1><%= @restaurant.name %></h1>
     <h2><%= @restaurant.description %></h2>
@@ -6,9 +11,8 @@
 </div>
 
 <div class="container">
-  <div>
-    <div class="row justify-content-center mt-5 mb-5">
-      <h1>Our Philosophy</h1>
+  <div class="row justify-content-center mt-5 mb-5">
+    <h1>Our Philosophy</h1>
     </div>
     <div class="row justify-content-center">
       <div class="col-8 text-justify mb-5">
@@ -22,6 +26,7 @@
   <div class="row justify-content-center">
     <h1>Our Home Cooking Experiences</h1>
   </div>
+
   <div class="container mt-7">
   <%= render "shared/meals_show", meals: @restaurant.meals, order_item: @order_item %>
   </div>

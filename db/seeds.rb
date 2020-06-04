@@ -4,7 +4,6 @@ Meal.destroy_all
 Category.destroy_all
 User.destroy_all
 
-
 ### Categories
 
 require 'csv'
@@ -14,20 +13,28 @@ CSV.foreach(filepath) do |row|
   Category.create(name: row.first)
 end
 
-### Restaurants City 1
-Restaurant.create(name: "Restaurant 1", address: "Street 1", city: "Berlin", description: "awesome place with great food")
+### Restaurants
+require "open-uri"
 
-Restaurant.create(name: "Restaurant 2", address: "Street 2", city: "Berlin", description: "awesome place with great food")
+### City 1
+file1 = URI.open('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?cs=srgb&dl=articoli-per-la-tavola-cameriera-cameriere-carne-262978.jpg&fm=jpg')
+restaurant1 = Restaurant.create(name: "Freya", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Zero waste vegan restaurant offering a wide range of frehs and locally sourced products.")
+restaurant1.photo.attach(io: file1, filename: 'freya.jpg', content_type: 'image/jpg')
 
 
-### Restaurants City 2
+Restaurant.create(name: "Lemongrass", address: "Simon-Dach-Straße 2, 10245 Berlin", city: "Berlin", description: "One of the best Thai places in the city with an authentic Pad-Thai recipe.")
+
+Restaurant.create(name: "", address: "Street 2", city: "Berlin", description: "awesome place with great food")
+
+
+### City 2
 
 Restaurant.create(name: "Restaurant 3", address: "Street 4", city: "Hamburg", description: "awesome place with great food")
 
 Restaurant.create(name: "Restaurant 4", address: "Street 4", city: "Hamburg", description: "awesome place with great food")
 
 
-### Restaurants City 3
+### City 3
 
 Restaurant.create(name: "Restaurant 5", address: "Street 4", city: "Stuttgart", description: "awesome place with great food")
 
@@ -42,7 +49,7 @@ Restaurant.create(name: "Restaurant 8", address: "Street 4", city: "Dortmund", d
 place with great food")
 
 
-# Chef 1
+Chef 1
 
 Chef.create(first_name: "Orlando", last_name: "Collender", bio: "lived, worked and cooked somewhere else before")
 
@@ -98,62 +105,38 @@ Meal.create(name: "Diet Bread", difficulty: 3, prep_time: 120, price: 10, descri
 
 # Meals Chef 4
 
-<<<<<<< HEAD
 Meal.create(name: "Pad Thai", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fourth, chef: Chef.all.fourth)
-=======
-Meal.create(name: "Pad Thai", difficulty: 5, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fourth, chef: Chef.all.fourth)
->>>>>>> 8e49b2101597f0c0278a7fecfb1957f3e4bc2e6b
 
 Meal.create(name: "Fabolous food", difficulty: 2, prep_time: 60, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fourth, chef: Chef.all.fourth)
 
 # Meals Chef 5
 
-<<<<<<< HEAD
 Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
-=======
-Meal.create(name: "Yummy Tummy", difficulty: 1, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
->>>>>>> 8e49b2101597f0c0278a7fecfb1957f3e4bc2e6b
-
-Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
-
-<<<<<<< HEAD
-Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
-
-# Meals Chef 6
-
-Meal.create(name: "Very Good Cake", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
-=======
 Meal.create(name: "Yummy Tummy", difficulty: 4, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
 
 # Meals Chef 6
 
 Meal.create(name: "Very Good Cake", difficulty: 2, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
->>>>>>> 8e49b2101597f0c0278a7fecfb1957f3e4bc2e6b
+
 
 Meal.create(name: "Scrumptious Sate", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
 
-<<<<<<< HEAD
 Meal.create(name: "Delicious Dorrito", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
 
 # Meals Chef 7
 
 Meal.create(name: "Tomato à la Toni", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 7"), chef: Chef.find_by(first_name: "Lisa"))
-=======
+
 Meal.create(name: "Delicious Dorrito", difficulty: 1, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
 
 # Meals Chef 7
 
-Meal.create(name: "Tomato à la Toni", difficulty: 5, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 7"), chef: Chef.find_by(first_name: "Lisa"))
->>>>>>> 8e49b2101597f0c0278a7fecfb1957f3e4bc2e6b
 
 Meal.create(name: "Adventorous Avocado", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 7"), chef: Chef.find_by(first_name: "Lisa"))
 
 # Meals Chef 8
-<<<<<<< HEAD
+
 Meal.create(name: "Aspiring Asparagus", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
-=======
-Meal.create(name: "Aspiring Asparagus", difficulty: 2, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
->>>>>>> 8e49b2101597f0c0278a7fecfb1957f3e4bc2e6b
 
 Meal.create(name: "Potential Potato", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
 
@@ -175,9 +158,10 @@ end
 ### User
 
 user = User.new
+user.first_name = "Test"
+user.last_name = "Test"
 user.email = 'test@example.com'
 user.password = '123456'
 user.password_confirmation = '123456'
 user.save!
-
 

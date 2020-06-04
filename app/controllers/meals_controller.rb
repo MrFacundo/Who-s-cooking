@@ -1,4 +1,6 @@
 class MealsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :index]
+
   def index
     @meals = Meal.all
     @order_item = OrderItem.new

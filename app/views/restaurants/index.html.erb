@@ -1,14 +1,19 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner_index_restaurants.jpg" %>'); text-align: center;">
   <div class="container">
-    <h1>The best restaurants in the city on your dinner table!</h1>
+    <h1>The best meals in the city on your dinner table!</h1>
   </div>
 </div>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-8">
       <% @restaurants.each do |restaurant| %>
         <div class="card mb-3 mt-3">
-          <%= image_tag "restaurant.jpg" %>
+          <% if restaurant.photo.attached? %>
+            <%= cl_image_tag restaurant.photo.key %>
+          <% else %>
+            <%= image_tag "restaurant.jpg" %>
+          <% end %>
           <div class="card-footer">
             <h3><%= link_to restaurant.name, restaurant_path(restaurant), class: "border-bottom" %></h3>
             <p><%= restaurant.description %></p>
