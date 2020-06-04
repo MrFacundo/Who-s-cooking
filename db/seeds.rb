@@ -24,7 +24,7 @@ require "open-uri"
 
 ### City 1
 file1 = URI.open('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?cs=srgb&dl=articoli-per-la-tavola-cameriera-cameriere-carne-262978.jpg&fm=jpg')
-restaurant1 = Restaurant.create(name: "Freya", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Zero waste vegan restaurant offering a wide range of frehs and locally sourced products.")
+restaurant1 = Restaurant.create(name: "Freya", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Zero waste vegan restaurant offering a wide range of fresh and locally sourced products.")
 restaurant1.photo.attach(io: file1, filename: 'freya.jpg', content_type: 'image/jpg')
 
 file2 = URI.open('https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
