@@ -30,8 +30,11 @@ background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= imag
     <div class="col-8">
       <% @restaurant.meals.each do |meal| %>
         <div class="card mb-3 mt-3">
-          <%= image_tag "meal_placeholder.jpg" %>
-
+          <% if meal.photo.attached? %>
+            <%= cl_image_tag meal.photo.key %>
+          <% else %>
+            <%= image_tag "meal_placeholder.jpg" %>
+          <% end %>
           <div class="card-footer pt-0">
 
             <div class="prep-info">
