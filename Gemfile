@@ -27,6 +27,10 @@ gem 'simple_form'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Active storage for photos:
+gem 'cloudinary', '~> 1.12.0'
+
+# User
 gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb
