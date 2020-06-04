@@ -188,3 +188,13 @@ user.password_confirmation = '123456'
 user.save!
 
 puts "finished!"
+
+### Steps
+
+ Step.create(name: "Step 1: for the Pasta Dough", content: "Combine flour, semolina, and salt in a small bowl.
+    Pour onto a clean surface and make a well.  In a small bowl add the eggs and olive oil; whisk until combined.
+    Pour the egg mixture into the well and grab a good ol’ fork.  Slowly incorporate the flour until the mixture is combined and start working with your hands.
+    Slowly work until it forms a dough. Knead the dough until the dough feels similar to  play-doh.
+    If the dough is too wet, add more flour; if the dough is crumbly or not moulding together properly, add a small amount of water.
+    Once you have a good feeling dough, wrap in saran wrap and let rest. If you can let it rest an hour – great! But, if not, this recipe will be good after 10 minutes.",
+    meal: Meal.find_by(name: "Agnolotti"))
