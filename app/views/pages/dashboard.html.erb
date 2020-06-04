@@ -6,10 +6,9 @@
 <br>
 <h4>My recipes</h4>
 <div class="container">
-<% @meal_names.each do |ml| %>
+<% @meals.each do |ml| %>
   <ul>
-    <li><%= link_to "ml", recipe_path %> /li>
+    <li><%= link_to ml.name, recipe_path(ml)%> </li>
   </ul>
 <% end %>
 </div>
-
