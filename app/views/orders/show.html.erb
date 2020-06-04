@@ -1,15 +1,20 @@
-<div class="container mt-5">
 
-  <ul>
-    <li><%= @order.delivery_time %></li>
-    <li><%= @order.delivery_address %></li>
-    <li><%= @order.restaurant.name %></li>
-    <li><%= @order.user.email %></li>
-  </ul>
+<div class="container">
+  <div class="shopping-cart">
+    <div class="text-center">
+      <h1><i class="fas fa-shopping-cart"></i> Bon Appetit!</h1>
+    </div>
 
-  <% @order.order_items.each do |oi| %>
-    <ul>
-      <li><%= oi.meal.name %> <%=  oi.quantity %></li>
-    </ul>
-  <% end %>
+    <p>Your order from <strong> <%= @order.restaurant.name %> </strong> will be delivered to your door at <%= @order.delivery_time %></p>
+    <p>A confirmation of your order has been sent to <strong> <%= @order.user.email %> </strong></p>
+
+    <%= image_tag "delivery.svg", alt: "Cook", height: 100, width: 100 %>
+
+    <% @order.order_items.each do |oi| %>
+      <div class="row justify-content-around">
+        <p><%= oi.meal.name %></p>
+        <p><%=  oi.quantity %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
