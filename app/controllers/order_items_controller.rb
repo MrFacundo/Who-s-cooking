@@ -25,6 +25,8 @@ class OrderItemsController < ApplicationController
     else
       render :new
     end
+    @order.total_price = t_price(@order)
+    @order.save
   end
 
   private
@@ -33,4 +35,11 @@ class OrderItemsController < ApplicationController
     params.require(:order_item).permit(:quantity)
   end
 
+  def t_price(order)
+    total = 0
+    order.order_items.each do |oi|
+      total += Meal.find(oi.meal_id).price * oi.quantity
+    end
+    total
+  end
 end
