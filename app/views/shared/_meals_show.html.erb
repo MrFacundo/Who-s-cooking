@@ -3,8 +3,12 @@
   <div class="row justify-content-center">
     <div class="col-8">
         <div class="card mb-3 mt-3">
-          <%= image_tag "meal_placeholder.jpg" %>
-          
+          <% if meal.photo.attached? %>
+            <%= cl_image_tag meal.photo.key %>
+          <% else %>
+            <%= image_tag "meal_placeholder.jpg" %>
+          <% end %>
+
           <div class="card-footer pt-0">
 
             <div class="prep-info">
@@ -81,6 +85,6 @@
           </div>
         </div>
     </div>
-  </div> 
+  </div>
 </div>
 <% end %>
