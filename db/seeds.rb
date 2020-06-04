@@ -1,14 +1,18 @@
 puts "Cleaning up the DB"
 
+# Order is important since there are foreign keys
+Order.destroy_all
+OrderItem.destroy_all
+Meal.destroy_all
+Chef.destroy_all
 Restaurant.destroy_all
 MealCategory.destroy_all
-Meal.destroy_all
 Category.destroy_all
 User.destroy_all
 
-puts "creating categories"
 
 ### Categories
+puts "Creating categories..."
 
 require 'csv'
 filepath = 'db/categories.csv'
@@ -17,9 +21,10 @@ CSV.foreach(filepath) do |row|
   Category.create(name: row.first)
 end
 
-puts "creating restaurants"
 
 ### Restaurants
+puts "Creating restaurants..."
+
 require "open-uri"
 
 ### City 1
@@ -57,20 +62,22 @@ restaurant3.photo.attach(io: file3, filename: 'papapane.jpg', content_type: 'ima
 # place with great food")
 
 
-puts "creating chefs"
+puts "Creating chefs..."
 
 # Chef 1
-
-Chef.create(first_name: "Martin", last_name: "Oliver", bio: "Learned how to cook when travelling all over the world. Now I want to make the world a better place so I started cooking vegan food and I work by the zero-waste principle. ")
-
+image1 = URI.open('https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+chef1 = Chef.create(first_name: "Martin", last_name: "Oliver", bio: "Learned how to cook when travelling all over the world. Now I want to make the world a better place so I started cooking vegan food and I work by the zero-waste principle. ")
+chef1.photo.attach(io: image1, filename: 'martin.jpg', content_type: 'image/jpg')
 # Chef 2
 
-Chef.create(first_name: "Marius", last_name: "Mayer", bio: "I lived in Thailand for a few years and fell in love with the cuisine there. When I moved back to Germany I wanted to bring some of it back.")
-
+image2 = URI.open('https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+chef2 = Chef.create(first_name: "Christian", last_name: "Mayer", bio: "I lived in Thailand for a few years and fell in love with the cuisine there. When I moved back to Germany I wanted to bring some of it back.")
+chef2.photo.attach(io: image2, filename: 'christian.jpg', content_type: 'image/jpg')
 # Chef 3
 
-Chef.create(first_name: "Giuseppe", last_name: "Veronese", bio: "Berlin is like a little Italy. I wanted to make sure everyone knows that Italian food is the best!")
-
+image3 = URI.open('https://images.unsplash.com/photo-1578738288760-05ce9be719d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80')
+chef3 = Chef.create(first_name: "Laura", last_name: "Veronese", bio: "Berlin is like a little Italy. I wanted to make sure everyone knows that Italian food is the best!")
+chef3.photo.attach(io: image3, filename: 'laura.jpg', content_type: 'image/jpg')
 # # Chef 4
 
 # Chef.create(first_name: "Werner", last_name: "Meyer", bio: "lived, worked and cooked somewhere else before")
@@ -92,9 +99,8 @@ Chef.create(first_name: "Giuseppe", last_name: "Veronese", bio: "Berlin is like 
 # Chef.create(first_name: "Tanja", last_name: "Spatula", bio: "lived, worked and cooked somewhere else before")
 
 
-puts "creating meals"
-
 #### Meals
+puts "Creating meals..."
 
 # Meals Chef 1 / Restaurant 1
 
@@ -160,24 +166,24 @@ meal6.photo.attach(io: photo6, filename: 'penne.jpg', content_type: 'image/jpg')
 
 # Meal.create(name: "Potential Potato", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
 
-puts "creating meal categories"
 
 #### Meal Categories
+puts "Creating meal categories..."
 
 
 20.times do
   MealCategory.create(meal: Meal.all.sample, category_id: Category.all.sample.id)
 end
 
-puts "creating reviews "
 #### Reviews
+puts "Creating reviews..."
 
 5.times do
-  Review.create(content: "Really liked it, great meal", rating: 5)
+  Review.create(content: "Really liked it, great meal", rating: 5, order: Order.all.sample)
 end
 
-puts "creating user"
 ### User
+puts "Creating user..."
 
 user = User.new
 user.first_name = "Test"
@@ -186,8 +192,6 @@ user.email = 'test@example.com'
 user.password = '123456'
 user.password_confirmation = '123456'
 user.save!
-
-puts "finished!"
 
 ### Steps
 
@@ -198,3 +202,5 @@ puts "finished!"
     If the dough is too wet, add more flour; if the dough is crumbly or not moulding together properly, add a small amount of water.
     Once you have a good feeling dough, wrap in saran wrap and let rest. If you can let it rest an hour – great! But, if not, this recipe will be good after 10 minutes.",
     meal: Meal.find_by(name: "Agnolotti"))
+
+puts "Finished!"
