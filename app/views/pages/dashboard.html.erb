@@ -8,7 +8,8 @@
 <div class="container">
 <% @meal_names.each do |ml| %>
   <ul>
-    <li><%= ml %></li>
+    <li><%= link_to "ml", recipe_path %> /li>
   </ul>
 <% end %>
 </div>
+

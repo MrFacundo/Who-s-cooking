@@ -11,5 +11,8 @@ Rails.application.routes.draw do
     resources :order_items, only: [:new, :create]
   end
 
+  get '/meals/:meal_id/recipe', to: 'meals#recipe', as: 'recipe'
+
+
   resources :orders, only: [:show, :edit, :update]
 end
