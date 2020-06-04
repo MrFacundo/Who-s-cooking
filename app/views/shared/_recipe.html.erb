@@ -1,0 +1,9 @@
+
+<% steps = @recipe.steps.sort_by { |s| s["name"] } %>
+
+<% steps.each do |s| %>
+  <ul>
+    <li><strong><%= s.name %></strong></li>
+    <li><%= s.content %></li>
+  </ul>
+<% end %>
