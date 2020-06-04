@@ -49,7 +49,7 @@ Restaurant.create(name: "Restaurant 8", address: "Street 4", city: "Dortmund", d
 place with great food")
 
 
-Chef 1
+# Chef 1
 
 Chef.create(first_name: "Orlando", last_name: "Collender", bio: "lived, worked and cooked somewhere else before")
 
