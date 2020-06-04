@@ -67,7 +67,11 @@
                     <p><strong>Cooking Experience: </strong>An experience with us is like no other. It is amazing and really fun.</p>
                     <p><strong>Meet your chef: </strong></p>
                     <div class = "d-flex justify-content-start">
-                      <%= image_tag "chef1.jpg", class: "avatar-large", alt: "avatar-large" %>
+                      <% if meal.chef.photo.attached? %>
+                        <%= cl_image_tag meal.chef.photo.key, class: "avatar-large mr-3", alt: "avatar-large" %>
+                      <% else %>
+                        <%= image_tag "chef1.jpg", class: "avatar-large mr-3", alt: "avatar-large" %>
+                      <% end %>
                       <p><%= meal.chef.first_name %><%= meal.chef.last_name %></p>
                     </div>
                   </div>
