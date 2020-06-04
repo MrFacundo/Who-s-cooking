@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :order_items, through: :orders
   has_many :meals, through: :order_items
 
-
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end
