@@ -7,13 +7,13 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @orders = @user.orders.where(paid:true)
-    @meal_names = []
+    @meals = []
     @orders.each do |o|
       o.order_items.each do |oi|
-        @meal_names << oi.meal.name
+        @meals << oi.meal
       end
     end
-    @meal_names = @meal_names.uniq
+    @meals = @meals.uniq
   end
 
 end
