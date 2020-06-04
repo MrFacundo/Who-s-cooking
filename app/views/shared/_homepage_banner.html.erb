@@ -3,14 +3,10 @@
     <h1>Learn to cook from the best chefs in the city!</h1>
     <p>Convenient, inspiring and fun!</p>
 
-    
-    <%= simple_form_for "/", url: restaurants_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Enter your city" />
-        <button name="button" type="submit" class="btn btn-info">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
+
+    <%= simple_form_for "" , url: restaurants_path, method: :get do |f| %>
+        <%= f.input :city, prompt: "Select your city!", label: false, collection: Restaurant::CITY %>
+        <%= f.button :submit, "Search!", class: "btn-info" %>
     <% end %>
   </div>
 </div>

@@ -1,6 +1,10 @@
 class RestaurantsController < ApplicationController
   def index
-    @restaurants = Restaurant.all
+    if params[:city] == ""
+      @restaurants = Restaurant.all
+    else
+      @restaurants = Restaurant.where(city: params[:city])
+    end
   end
 
   def show
