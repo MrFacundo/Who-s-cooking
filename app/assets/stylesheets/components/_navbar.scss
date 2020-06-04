@@ -3,7 +3,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 100;
   width: 100%;
@@ -17,4 +17,8 @@
 .navbar-lewagon .navbar-brand img {
   margin-left: 10px;
   width: 80px;
+}
+
+.navbar-lewagon .cart i:hover {
+  color: #5e5d5d;
 }
