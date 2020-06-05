@@ -29,18 +29,18 @@ class OrderItemsController < ApplicationController
     @order.save
   end
 
-  # def edit
-  #   @order = Order.find(params[:id])
-  #   @order_item = OrderItem.find(params[:id])
-  # end
+  def edit
+    @order = Order.find(params[:id])
+    @order_item = OrderItem.find(params[:id])
+  end
 
-  # def update
-  #   @order = Order.find(params[:id])
-  #   @order_item = OrderItem.find(params[:id])
-  #   @order_item.quantity = @order_item(:quantity)
-  #   @order_item.save
-  #   redirect_to orders_path(@order)
-  # end
+  def update
+    @order = Order.find(params[:id])
+    @order_item = OrderItem.find(params[:id])
+    @order_item.quantity = @order_item(:quantity)
+    @order_item.save
+    redirect_to orders_path(@order)
+  end
 
   def destroy
     @order_item = OrderItem.find(params[:id])
