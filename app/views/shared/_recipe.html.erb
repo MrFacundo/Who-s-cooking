@@ -1,9 +1,19 @@
+<div class="container justify-self-center">
+  <div class="position d-flex justify-content-center">
+      <%= image_tag @meal.photo, alt: "Recipe Video Explanation" %>
+      <button class="btn"><strong>></strong></button>
+  </div>
 
-<% steps = @recipe.steps.sort_by { |s| s["name"] } %>
-
-<% steps.each do |s| %>
-  <ul>
-    <li><strong><%= s.name %></strong></li>
-    <li><%= s.content %></li>
-  </ul>
-<% end %>
+  <div class="recipe">
+    <h1>Your Recipe!</h1>
+    <% steps = @recipe.steps.sort_by { |s| s["name"] } %>
+    <% steps.each do |s| %>
+      <div class="details">
+          <div class="description">
+            <h2><%= s.name %></h2>
+            <p><%= s.content %></p>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

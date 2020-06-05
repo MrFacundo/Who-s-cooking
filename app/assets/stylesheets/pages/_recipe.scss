@@ -1,0 +1,42 @@
+/*Stylin of the recipe-steps-cards can be done in the cards_homepage file*/
+
+/* Container needed to position the button. Adjust the width as needed */
+.position {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the image responsive */
+.position img {
+  width: 60%;
+  height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.position .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: #EF6E49;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 40px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.position .btn:hover {
+  color: #EF6E49;
+  background-color:  rgba(255, 255, 255, 1);
+}
+
+.recipe {
+  margin-top: 30px;
+  padding: 10px;
+  justify-content: center;
+  width: 100%;
+  text-align: center; 
+}

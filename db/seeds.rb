@@ -4,6 +4,7 @@ puts "Cleaning up the DB"
 Order.destroy_all
 OrderItem.destroy_all
 Meal.destroy_all
+Step.destroy_all
 Chef.destroy_all
 Restaurant.destroy_all
 MealCategory.destroy_all
@@ -28,17 +29,21 @@ puts "Creating restaurants..."
 require "open-uri"
 
 ### City 1
-file1 = URI.open('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?cs=srgb&dl=articoli-per-la-tavola-cameriera-cameriere-carne-262978.jpg&fm=jpg')
-restaurant1 = Restaurant.create(name: "Freya", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Zero waste vegan restaurant offering a wide range of fresh and locally sourced products.")
-restaurant1.photo.attach(io: file1, filename: 'freya.jpg', content_type: 'image/jpg')
+file1 = URI.open('https://images.unsplash.com/photo-1564758866811-4780aa0a1f49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
+restaurant1 = Restaurant.create(name: "Frea", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Zero waste vegan restaurant offering a wide range of fresh and locally sourced products.")
+restaurant1.photo.attach(io: file1, filename: 'frea.jpg', content_type: 'image/jpg')
 
-file2 = URI.open('https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
+file2 = URI.open('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
 restaurant2 = Restaurant.create(name: "Lemongrass", address: "Simon-Dach-Straße 2, 10245 Berlin", city: "Berlin", description: "One of the best Thai places in the city with an authentic Pad-Thai recipe.")
 restaurant2.photo.attach(io: file2, filename: 'lemongrass.jpg', content_type: 'image/jpg')
 
-file3 = URI.open('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
+file3 = URI.open('https://images.pexels.com/photos/9315/menu-restaurant-france-eating-9315.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
 restaurant3 = Restaurant.create(name: "Papa Pane", address: "Ackerstraße 23, 10115 Berlin", city: "Berlin", description: "Authentic Italian food in the heart of Berlin! The best Napoli style pizza!")
 restaurant3.photo.attach(io: file3, filename: 'papapane.jpg', content_type: 'image/jpg')
+
+file4 = URI.open('https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80')
+restaurant4 = Restaurant.create(name: "Schneeweiß", address: "Simplonstraße 16, 10245 Berlin", city: "Berlin", description: "Stylish restaurant serving Alpine cuisine in the trendy neighbourhood of Friedrichshain.")
+restaurant4.photo.attach(io: file4, filename: 'schneeweiss.jpg', content_type: 'image/jpg')
 
 # ### City 2
 
@@ -104,13 +109,18 @@ puts "Creating meals..."
 
 # Meals Chef 1 / Restaurant 1
 
-photo1 = URI.open('https://images.pexels.com/photos/769969/pexels-photo-769969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal1 = Meal.create(name: "Agnolotti", difficulty: 4, prep_time: 120, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first)
+photo1 = URI.open('https://storage.needpix.com/rsynced_images/tortelloni-2963581_1280.jpg')
+meal1 = Meal.create(name: "Agnolotti", difficulty: 4, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first)
 meal1.photo.attach(io: photo1, filename: 'agnolotti.jpg', content_type: 'image/jpg')
 
 photo2 = URI.open('https://images.pexels.com/photos/1374586/pexels-photo-1374586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal2 = Meal.create(name: "Flatbread", difficulty: 2, prep_time: 120, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first)
+meal2 = Meal.create(name: "Flatbread", difficulty: 3, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first)
 meal2.photo.attach(io: photo2, filename: 'flatbread.jpg', content_type: 'image/jpg')
+
+photo7 = URI.open('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
+meal7 = Meal.create(name: "Quinoa with green beans", difficulty: 2, prep_time: 40, price: 21, description: "Tasty quino with green beans and cherry tomatoes.", restaurant: Restaurant.first, chef: Chef.first)
+meal7.photo.attach(io: photo7, filename: 'quinoa.jpg', content_type: 'image/jpg')
+
 
 # Meals Chef 2 / Restaurant 2
 photo3 = URI.open('https://images.unsplash.com/photo-1559314809-0d155014e29e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
@@ -196,11 +206,19 @@ user.save!
 ### Steps
 
  Step.create(name: "Step 1: for the Pasta Dough", content: "Combine flour, semolina, and salt in a small bowl.
-    Pour onto a clean surface and make a well.  In a small bowl add the eggs and olive oil; whisk until combined.
+    In a small bowl add the eggs and olive oil; whisk until combined.
     Pour the egg mixture into the well and grab a good ol’ fork.  Slowly incorporate the flour until the mixture is combined and start working with your hands.
-    Slowly work until it forms a dough. Knead the dough until the dough feels similar to  play-doh.
-    If the dough is too wet, add more flour; if the dough is crumbly or not moulding together properly, add a small amount of water.
-    Once you have a good feeling dough, wrap in saran wrap and let rest. If you can let it rest an hour – great! But, if not, this recipe will be good after 10 minutes.",
+    Slowly work until it forms a dough. Knead the dough until the dough feels similar to  play-doh.",
+    meal: Meal.find_by(name: "Agnolotti"))
+
+ Step.create(name: "Step 2: for the Filling", content: "Place peeled and diced potatoes in a medium pot and fill with water until potatoes are just covered.
+    Put on medium high heat and allow water to boil. Boil potatoes until a fork can poke through.
+    Drain potatoes and mash until smooth. Add goat cheese, parmesan, milk, chives and  salt. Mix until well incorporated.",
+    meal: Meal.find_by(name: "Agnolotti"))
+
+ Step.create(name: "Step 3: Making Agnolotti", content: "With your piping bag, pipe a long line of the potato filling along the bottom of the sheet leaving about 1/4 inch of space from the very bottom.
+    Brush a small amount of egg wash above the piped potato on the pasta sheet.  Gently grab the quarter inch of space on the bottom and  fold over piped potato and roll one time.
+    The egg wash will help seal the pasta and the piped potato should be wrapped in the thin pasta. ",
     meal: Meal.find_by(name: "Agnolotti"))
 
 puts "Finished!"
