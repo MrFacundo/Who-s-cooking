@@ -4,6 +4,7 @@ puts "Cleaning up the DB"
 Order.destroy_all
 OrderItem.destroy_all
 Meal.destroy_all
+Step.destroy_all
 Chef.destroy_all
 Restaurant.destroy_all
 MealCategory.destroy_all
@@ -196,11 +197,19 @@ user.save!
 ### Steps
 
  Step.create(name: "Step 1: for the Pasta Dough", content: "Combine flour, semolina, and salt in a small bowl.
-    Pour onto a clean surface and make a well.  In a small bowl add the eggs and olive oil; whisk until combined.
+    In a small bowl add the eggs and olive oil; whisk until combined.
     Pour the egg mixture into the well and grab a good ol’ fork.  Slowly incorporate the flour until the mixture is combined and start working with your hands.
-    Slowly work until it forms a dough. Knead the dough until the dough feels similar to  play-doh.
-    If the dough is too wet, add more flour; if the dough is crumbly or not moulding together properly, add a small amount of water.
-    Once you have a good feeling dough, wrap in saran wrap and let rest. If you can let it rest an hour – great! But, if not, this recipe will be good after 10 minutes.",
+    Slowly work until it forms a dough. Knead the dough until the dough feels similar to  play-doh.",
+    meal: Meal.find_by(name: "Agnolotti"))
+
+ Step.create(name: "Step 2: for the Filling", content: "Place peeled and diced potatoes in a medium pot and fill with water until potatoes are just covered. 
+    Put on medium high heat and allow water to boil. Boil potatoes until a fork can poke through.  
+    Drain potatoes and mash until smooth. Add goat cheese, parmesan, milk, chives and  salt. Mix until well incorporated.",
+    meal: Meal.find_by(name: "Agnolotti"))
+
+ Step.create(name: "Step 3: Making Agnolotti", content: "With your piping bag, pipe a long line of the potato filling along the bottom of the sheet leaving about 1/4 inch of space from the very bottom.  
+    Brush a small amount of egg wash above the piped potato on the pasta sheet.  Gently grab the quarter inch of space on the bottom and  fold over piped potato and roll one time.  
+    The egg wash will help seal the pasta and the piped potato should be wrapped in the thin pasta. ",
     meal: Meal.find_by(name: "Agnolotti"))
 
 puts "Finished!"
