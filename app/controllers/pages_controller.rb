@@ -5,15 +5,24 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @user = current_user
-    @orders = @user.orders.where(paid:true)
-    @meals = []
-    @orders.each do |o|
+
+    orders = current_user.orders.where(paid:true) #TO DO: where order.reviews = nil
+    @new_meals = []
+    @cookbook_meals = []
+    @new_meals = @new_meals.uniq
+
+    orders.each do |o|
       o.order_items.each do |oi|
-        @meals << oi.meal
+        if oi.order.review.nil?
+          @new_meals << oi.meal
+        else
+          @cookbook_meals << oi.meal
+        end
       end
     end
-    @meals = @meals.uniq
+
+    @cookbook_meals  = @cookbook_meals.uniq if !nil
+
   end
 
 end
