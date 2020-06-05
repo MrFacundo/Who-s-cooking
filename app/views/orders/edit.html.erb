@@ -12,17 +12,16 @@
       <div class="row justify-content-around">
         <p><%= oi.meal.name %></p>
         <%= simple_form_for oi do |f| %>
-          <div class= "form-group">
+          <div class= "form-inline">
             <%= f.input :quantity, label: false, class: "form-control" %>
-            <%= f.submit %>
+            <%= f.submit "Update".html_safe, class: "form-control"  %>
           </div>
         <% end %>
-        <%= link_to "<i class='fas fa-times'>Remove</i>".html_safe, order_item_path(oi.id), method: :delete %>
+        <%= link_to "<i class='fas fa-times'></i>".html_safe, order_item_path(oi.id), method: :delete %>
       </div>
     <% end %>
 
-
-    <div class="form">
+    <div class="form mt-3">
       <%= simple_form_for [ @order ] do |f| %>
         <div class= "form-group">
           <%= f.input :delivery_time, class: "form-control" %>
@@ -34,4 +33,6 @@
     </div>
   </div>
   </div>
+  <br>
+  <br>
 </div>
