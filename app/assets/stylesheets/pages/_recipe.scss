@@ -1,48 +1,42 @@
 /*Stylin of the recipe-steps-cards can be done in the cards_homepage file*/
-.video {
-  width: 100%;
-  border-radius: 3px;
-  box-shadow: 0 0 5px rgb(230,230,230);
-  text-align: center;
-  padding: 20px;
-}
 
-.video img {
-  width: 100%;
-}
-
-.thumb {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-}
-
-.overlay {
+/* Container needed to position the button. Adjust the width as needed */
+.position {
   position: relative;
+  width: 100%;
 }
 
-.thumb .overlay:hover .playWrapper {
-        opacity: 1;
-    }
-.overlay .playWrapper {
-  opacity: 0;
-  position: absolute; z-index: 1;
-  top: 0;
-  width: 192px; height: 109px;
-  background-color: rgba(0, 0, 0, .5);
+/* Make the image responsive */
+.position img {
+  width: 60%;
+  height: auto;
 }
 
-.overlay .time {
-  position: absolute; z-index: 2;
-  right: 3px; bottom: 3px;
-  padding: 2px 5px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+/* Style the button and place it in the middle of the container/image */
+.position .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: #EF6E49;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 40px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
+.position .btn:hover {
+  color: #EF6E49;
+  background-color:  rgba(255, 255, 255, 1);
+}
 
-.playWrapper .playBtn {
-  position: absolute; z-index: 2;
-  width: 50px; height: 50px;
-  left: 0; right: 0; top: 0; bottom: 0; margin: auto; /* center */
+.recipe {
+  margin-top: 30px;
+  padding: 10px;
+  justify-content: center;
+  width: 100%;
+  text-align: center; 
 }
