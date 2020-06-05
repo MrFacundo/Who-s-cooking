@@ -8,11 +8,11 @@
     <% @order.order_items.each do |oi| %>
       <div class="row justify-content-around">
         <p><%= oi.meal.name %></p>
-        <p><%=  oi.quantity %></p>
-        <p>LINK TO EDIT AMOUNT</p>
-        <p> <i class="fas fa-times"></i>LINK TO REMOVE</p>
+        <p><%= oi.quantity %></p>
+        <%= link_to "<i class='fas fa-times'>Remove</i>".html_safe, order_item_path(oi.id), method: :delete %>
       </div>
     <% end %>
+
 
     <div class="form">
       <%= simple_form_for [ @order ] do |f| %>
