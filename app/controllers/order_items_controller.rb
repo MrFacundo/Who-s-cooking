@@ -35,11 +35,10 @@ class OrderItemsController < ApplicationController
   end
 
   def update
-    @order = Order.find(params[:id])
     @order_item = OrderItem.find(params[:id])
-    @order_item.quantity = @order_item(:quantity)
-    @order_item.save
-    redirect_to orders_path(@order)
+    @order = @order_item.order
+    @order_item.update(order_item_params)
+    redirect_to edit_order_path(@order)
   end
 
   def destroy
