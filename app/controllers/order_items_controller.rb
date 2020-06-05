@@ -29,6 +29,27 @@ class OrderItemsController < ApplicationController
     @order.save
   end
 
+  # def edit
+  #   @order = Order.find(params[:id])
+  #   @order_item = OrderItem.find(params[:id])
+  # end
+
+  # def update
+  #   @order = Order.find(params[:id])
+  #   @order_item = OrderItem.find(params[:id])
+  #   @order_item.quantity = @order_item(:quantity)
+  #   @order_item.save
+  #   redirect_to orders_path(@order)
+  # end
+
+  def destroy
+    @order_item = OrderItem.find(params[:id])
+    @order = Order.find(@order_item.order_id)
+    @order_item.destroy
+    redirect_to order_path(@order.id), notice: 'Meal has been removed from shopping cart'
+  end
+
+
   private
 
   def order_item_params
