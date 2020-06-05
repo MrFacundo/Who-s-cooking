@@ -1,28 +1,19 @@
-
-<div class="container">
-  <h1>Your Recipe!</h1>
-  <div class="video play">
-    <%= image_tag @meal.photo, alt: "Recipe Video Explanation" %>
+<div class="container justify-self-center">
+  <div class="position d-flex justify-content-center">
+      <%= image_tag @meal.photo, alt: "Recipe Video Explanation" %>
+      <button class="btn"><strong>></strong></button>
   </div>
-  <div class="overlay">
-        <a href="#"><img class="thumbnail" src="https://homepages.cae.wisc.edu/~ece533/images/monarch.png" width="192" height="109" alt=""></a>
-        <span class="time">3:28</span>
-        <a href="#" class="playWrapper">
-          <span class="playBtn"><img src="http://wptf.com/wp-content/uploads/2014/05/play-button.png" width="50" height="50" alt=""></span>
-        </a>
-  </div>
-</div>
 
-
-<% steps = @recipe.steps.sort_by { |s| s["name"] } %>
-
-<% steps.each do |s| %>
-<div class="container">
-  <div class="details">
-      <div class="description">
-        <h2><%= s.name %></h2>
-        <p><%= s.content %></p>
+  <div class="recipe">
+    <h1>Your Recipe!</h1>
+    <% steps = @recipe.steps.sort_by { |s| s["name"] } %>
+    <% steps.each do |s| %>
+      <div class="details">
+          <div class="description">
+            <h2><%= s.name %></h2>
+            <p><%= s.content %></p>
+          </div>
       </div>
+    <% end %>
   </div>
 </div>
-<% end %>
