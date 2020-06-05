@@ -1,14 +1,22 @@
 <div class="container">
   <div class="shopping-cart">
-    <div class="text-center">
+    <div class="text-center pt-3">
       <h1><i class="fas fa-shopping-cart"></i> Shopping Cart</h1>
       <h2><%= @order.restaurant.name %></h2>
     </div>
 
+    <div class="row justify-content-center pt-5">
+    <div class="col-6">
+
     <% @order.order_items.each do |oi| %>
       <div class="row justify-content-around">
         <p><%= oi.meal.name %></p>
-        <p><%= oi.quantity %></p>
+        <%= simple_form_for oi do |f| %>
+          <div class= "form-group">
+            <%= f.input :quantity, label: false, class: "form-control" %>
+            <%= f.submit %>
+          </div>
+        <% end %>
         <%= link_to "<i class='fas fa-times'>Remove</i>".html_safe, order_item_path(oi.id), method: :delete %>
       </div>
     <% end %>
@@ -23,5 +31,7 @@
         </div>
       <% end %>
     </div>
+    </div>
+  </div>
   </div>
 </div>
