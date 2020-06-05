@@ -43,9 +43,9 @@ class OrderItemsController < ApplicationController
 
   def destroy
     @order_item = OrderItem.find(params[:id])
-    @order = Order.find(@order_item.order_id)
+    @order = @order_item.order
     @order_item.destroy
-    redirect_to order_path(@order.id), notice: 'Meal has been removed from shopping cart'
+    redirect_to edit_order_path(@order), notice: 'Meal has been removed from shopping cart'
   end
 
 
