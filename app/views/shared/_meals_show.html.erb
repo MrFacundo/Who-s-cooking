@@ -1,5 +1,5 @@
 <% meals.each do |meal| %>
-<div class="container mt-5">
+<div class="container mt-5" id="meal-<%= meal.id %>">
   <div class="row justify-content-center">
     <div class="col-8">
         <div class="card mb-3 mt-3">
@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="form d-flex justify-content-end">
-                  <%= simple_form_for [ meal, order_item ] do |f| %>
+                  <%= simple_form_for([ meal, order_item ]) do |f| %>
                     <div class= "form-group">
                       <%= f.input :quantity, class: "form-control" %>
                       <%= f.submit "Order", class: "form-control btn btn-info" %>
