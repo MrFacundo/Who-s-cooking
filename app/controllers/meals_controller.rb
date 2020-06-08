@@ -2,8 +2,7 @@ class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @meals = Meal.all
-    @order_item = OrderItem.new
+    
   end
 
   def show
@@ -27,6 +26,12 @@ class MealsController < ApplicationController
     else
       # no access partial or flash
     end
+  end
+
+  private
+
+  def city_search
+    @meals = @meals.restaurant.where(city: params[:city])
   end
 
 end
