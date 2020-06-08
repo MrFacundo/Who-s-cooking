@@ -1,0 +1,14 @@
+<% @restaurants.each do |restaurant| %>
+  <div class="card mb-3 mt-3">
+    <% if restaurant.photo.attached? %>
+      <%= cl_image_tag restaurant.photo.key %>
+    <% else %>
+      <%= image_tag "restaurant.jpg" %>
+    <% end %>
+    <div class="card-footer">
+      <h3><%= link_to restaurant.name, restaurant_path(restaurant), class: "border-bottom" %></h3>
+      <div></div>
+      <p><%= restaurant.description %></p>
+    </div>
+  </div>
+<% end %>
