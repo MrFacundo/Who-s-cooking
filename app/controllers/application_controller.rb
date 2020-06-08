@@ -11,7 +11,11 @@ class ApplicationController < ActionController::Base
   private
 
   def set_counter
-    @order_items_count = OrderItem.count
+    @order_items_count = 0
+    @order = current_user.orders.where(paid: false).first
+    if @order
+      @order_items_count = @order.order_items.count
+    end
   end
 
   def current_order

@@ -13,9 +13,11 @@
     <ul class="navbar-nav mr-2 mt-2 mt-lg-0">
       <% if user_signed_in? %>
         <div class="cart">
-          <li class="nav-item">
-            <span class="counter badge badge-info"><%= @order_items_count %></span><%= link_to "<i class='fas fa-shopping-cart'></i>".html_safe,  edit_order_path(@order), style: "color: #333333; font-size: 25px;", class: "icon p-3" %>
-          </li>
+          <% if @order %>
+            <li class="nav-item">
+              <span class="counter badge badge-info"><%= @order_items_count %></span><%= link_to "<i class='fas fa-shopping-cart'></i>".html_safe,  edit_order_path(@order), style: "color: #333333; font-size: 25px;", class: "icon p-3" %>
+            </li>
+          <% end %>
         </div>
         <li class="nav-item">
           <%= link_to "My Experiences", dashboard_path, class: "nav-link"  %>
