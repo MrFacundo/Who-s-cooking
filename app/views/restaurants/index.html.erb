@@ -12,33 +12,21 @@
       <% end %>
   </div>
 
-<%= link_to "See Meals", restaurants_path(query: "Meals", city: params[:city])%> 
+
+<%= link_to '<button type="button">See all Meals</button>'.html_safe, restaurants_path(query: "Meals", city: params[:city])%>
+
+<%= link_to '<button type="button">See all Restaurants</button>'.html_safe, restaurants_path(query: "Restaurants", city: params[:city])%>
+
 
   <div class="container d-flex mt-5">
-    <div class="col-2">
-    </div>
+    
     <div class="col-10">
       <div class="row justify-content-center">
-        <div class="col-8">
         <% if params[:query] == "Meals" %>
           <%= render "shared/meals_show", meals: @meals, order_item: @order_item %>
         <% else %>
-          <% @restaurants.each do |restaurant| %>
-            <div class="card mb-3 mt-3">
-              <% if restaurant.photo.attached? %>
-                <%= cl_image_tag restaurant.photo.key %>
-              <% else %>
-                <%= image_tag "restaurant.jpg" %>
-              <% end %>
-              <div class="card-footer">
-                <h3><%= link_to restaurant.name, restaurant_path(restaurant), class: "border-bottom" %></h3>
-                <div></div>
-                <p><%= restaurant.description %></p>
-              </div>
-            </div>
-          <% end %>
+          <%= render "shared/restaurants_index" %>
         <% end %>
-        </div>
       </div>
     </div>
   </div>
