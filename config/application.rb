@@ -21,6 +21,7 @@ Bundler.require(*Rails.groups)
 
 module Secretchef
   class Application < Rails::Application
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
@@ -31,5 +32,10 @@ module Secretchef
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+  config.action_view.embed_authenticity_token_in_remote_forms = true
+
   end
+
+
 end

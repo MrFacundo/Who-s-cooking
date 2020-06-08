@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner_index_restaurants.jpg" %>'); text-align: center;">
   <div class="container">
-    <h1>The best meals in the city on your dinner table!</h1>
+    <h1>You can choose from <%= pluralize @restaurants.size, "restaurant" %>!</h1>
   </div>
 </div>
 
@@ -11,6 +11,7 @@
           <%= f.button :submit, "Search!", class: "btn-info" %>
       <% end %>
   </div>
+
 
 
 <%= link_to '<button type="button">See all Meals</button>'.html_safe, restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine])%>

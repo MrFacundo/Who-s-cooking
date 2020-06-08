@@ -1,5 +1,5 @@
 <% meals.each do |meal| %>
-<div class="container mt-5">
+<div class="container mt-5" id="meal-<%= meal.id %>">
   <div class="row justify-content-center">
     <div class="col-8">
         <div class="card mb-3 mt-3">
@@ -46,13 +46,13 @@
               <ul class="list-inline mb-0">
                 <% meal.categories.all.each do |c| %>
                   <% if c.name == "Vegan" %>
-                    <li class="list-inline-item"> <i class="fas fa-seedling"></i> </li>
+                    <li class="list-inline-item"> <span data-tooltip=<%= c.name  %>> <i class="fas fa-seedling"></i></span></li>
                   <% elsif c.name == "Vegetarian"%>
-                    <li class="list-inline-item"> <i class="fas fa-seedling"></i></li>
+                    <li class="list-inline-item"> <span data-tooltip=<%= c.name  %>> <i class="fas fa-carrot"></span></i></li>
                   <% elsif c.name == "Seafood" %>
-                    <li class="list-inline-item"> <i class="fas fa-fish"></i></li>
+                    <li class="list-inline-item"> <span data-tooltip=<%= c.name  %>> <i class="fas fa-fish"></i></span></li>
                   <% elsif c.name == "Spicy" %>
-                    <li class="list-inline-item"> <i class="fas fa-pepper-hot"></i></li>
+                    <li class="list-inline-item"><span data-tooltip=<%= c.name  %>> <i class="fas fa-pepper-hot"></i></span></li>
                   <% elsif c.name == "Low Carb" %>
                     <li class="list-inline-item"> <i class="fas fa-dumbbell"></i></li>
                   <% end %>
@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="form d-flex justify-content-end">
-                  <%= simple_form_for [ meal, order_item ] do |f| %>
+                  <%= simple_form_for([ meal, order_item ]) do |f| %>
                     <div class= "form-group">
                       <%= f.input :quantity, class: "form-control" %>
                       <%= f.submit "Order", class: "form-control btn btn-info" %>

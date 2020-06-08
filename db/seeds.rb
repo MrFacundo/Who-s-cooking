@@ -110,34 +110,34 @@ puts "Creating meals..."
 # Meals Chef 1 / Restaurant 1
 
 photo1 = URI.open('https://storage.needpix.com/rsynced_images/tortelloni-2963581_1280.jpg')
-meal1 = Meal.create(name: "Agnolotti", difficulty: 4, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first)
+meal1 = Meal.create(name: "Agnolotti", difficulty: 4, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish")
 meal1.photo.attach(io: photo1, filename: 'agnolotti.jpg', content_type: 'image/jpg')
 
 photo2 = URI.open('https://images.pexels.com/photos/1374586/pexels-photo-1374586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal2 = Meal.create(name: "Flatbread", difficulty: 3, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first)
+meal2 = Meal.create(name: "Flatbread", difficulty: 3, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter")
 meal2.photo.attach(io: photo2, filename: 'flatbread.jpg', content_type: 'image/jpg')
 
 photo7 = URI.open('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
-meal7 = Meal.create(name: "Quinoa with green beans", difficulty: 2, prep_time: 40, price: 21, description: "Tasty quino with green beans and cherry tomatoes.", restaurant: Restaurant.first, chef: Chef.first)
+meal7 = Meal.create(name: "Quinoa with green beans", difficulty: 2, prep_time: 40, price: 21, description: "Tasty quino with green beans and cherry tomatoes.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish")
 meal7.photo.attach(io: photo7, filename: 'quinoa.jpg', content_type: 'image/jpg')
 
 
 # Meals Chef 2 / Restaurant 2
 photo3 = URI.open('https://images.unsplash.com/photo-1559314809-0d155014e29e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
-meal3 = Meal.create(name: "Pad Thai", difficulty: 3, prep_time: 120, price: 15, description: "Spicy Thai-style fried noodles with peanuts and soy sprouts.", restaurant: Restaurant.second, chef: Chef.second)
+meal3 = Meal.create(name: "Pad Thai", difficulty: 3, prep_time: 120, price: 15, description: "Spicy Thai-style fried noodles with peanuts and soy sprouts.", restaurant: Restaurant.second, chef: Chef.second, menu_type: "Main Dish")
 meal3.photo.attach(io: photo3, filename: 'padthai.jpg', content_type: 'image/jpg')
 
 photo4 = URI.open('https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal4 = Meal.create(name: "Tom Kha Kai", difficulty: 2, prep_time: 120, price: 13, description: "Thai chicken coconut soup with coriander.", restaurant: Restaurant.second, chef: Chef.second)
+meal4 = Meal.create(name: "Tom Kha Kai", difficulty: 2, prep_time: 120, price: 13, description: "Thai chicken coconut soup with coriander.", restaurant: Restaurant.second, chef: Chef.second, menu_type: "Main Dish")
 meal4.photo.attach(io: photo4, filename: 'soup.jpg', content_type: 'image/jpg')
 # Meals Chef 3 / Restaurant 3
 
 photo5 = URI.open('https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=940')
-meal5 = Meal.create(name: "Tagliatelle al salmone e basilico", difficulty: 4, prep_time: 60, price: 10, description: "Our homemade tagliatelle with fresh slamon from the coast of Denmark.", restaurant: Restaurant.third, chef: Chef.third)
+meal5 = Meal.create(name: "Tagliatelle al salmone e basilico", difficulty: 4, prep_time: 60, price: 10, description: "Our homemade tagliatelle with fresh slamon from the coast of Denmark.", restaurant: Restaurant.third, chef: Chef.third, menu_type: "Main Dish")
 meal5.photo.attach(io: photo5, filename: 'tagliatelle.jpg', content_type: 'image/jpg')
 
 photo6 = URI.open('https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal6 = Meal.create(name: "Penne all'arrabbiata", difficulty: 3, prep_time: 120, price: 10, description: "Delicious penne with sauce made from the best local tomatoes.", restaurant: Restaurant.third, chef: Chef.third)
+meal6 = Meal.create(name: "Penne all'arrabbiata", difficulty: 3, prep_time: 120, price: 10, description: "Delicious penne with sauce made from the best local tomatoes.", restaurant: Restaurant.third, chef: Chef.third, menu_type: "Main Dish")
 meal6.photo.attach(io: photo6, filename: 'penne.jpg', content_type: 'image/jpg')
 # # Meals Chef 4
 
