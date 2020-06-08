@@ -21,12 +21,13 @@ class OrderItemsController < ApplicationController
     end
     @order_item.order = @order
     if @order_item.save
-      redirect_to edit_order_path(@order), notice: 'Meal kit was successfully added!'
+      @order.total_price = t_price(@order)
+      @order.save
+      redirect_to restaurant_path(@meal.restaurant, anchor: "meal-#{@meal.id}"), notice: 'Meal kit was successfully added!'
     else
       render :new
     end
-    @order.total_price = t_price(@order)
-    @order.save
+
   end
 
   def edit
