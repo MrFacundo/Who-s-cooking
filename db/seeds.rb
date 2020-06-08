@@ -1,6 +1,7 @@
 puts "Cleaning up the DB"
 
 # Order is important since there are foreign keys
+Review.destroy_all
 Order.destroy_all
 OrderItem.destroy_all
 Meal.destroy_all
