@@ -30,19 +30,19 @@ require "open-uri"
 
 ### City 1
 file1 = URI.open('https://images.unsplash.com/photo-1564758866811-4780aa0a1f49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
-restaurant1 = Restaurant.create(name: "Frea", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Zero waste vegan restaurant offering a wide range of fresh and locally sourced products.")
+restaurant1 = Restaurant.create(name: "Frea", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Zero waste vegan restaurant offering a wide range of fresh and locally sourced products.", cuisine: "Fusion")
 restaurant1.photo.attach(io: file1, filename: 'frea.jpg', content_type: 'image/jpg')
 
 file2 = URI.open('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
-restaurant2 = Restaurant.create(name: "Lemongrass", address: "Simon-Dach-Straße 2, 10245 Berlin", city: "Berlin", description: "One of the best Thai places in the city with an authentic Pad-Thai recipe.")
+restaurant2 = Restaurant.create(name: "Lemongrass", address: "Simon-Dach-Straße 2, 10245 Berlin", city: "Berlin", description: "One of the best Thai places in the city with an authentic Pad-Thai recipe.", cuisine: "Thai")
 restaurant2.photo.attach(io: file2, filename: 'lemongrass.jpg', content_type: 'image/jpg')
 
 file3 = URI.open('https://images.pexels.com/photos/9315/menu-restaurant-france-eating-9315.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-restaurant3 = Restaurant.create(name: "Papa Pane", address: "Ackerstraße 23, 10115 Berlin", city: "Berlin", description: "Authentic Italian food in the heart of Berlin! The best Napoli style pizza!")
+restaurant3 = Restaurant.create(name: "Papa Pane", address: "Ackerstraße 23, 10115 Berlin", city: "Berlin", description: "Authentic Italian food in the heart of Berlin! The best Napoli style pizza!", cuisine: "Italian")
 restaurant3.photo.attach(io: file3, filename: 'papapane.jpg', content_type: 'image/jpg')
 
 file4 = URI.open('https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80')
-restaurant4 = Restaurant.create(name: "Schneeweiß", address: "Simplonstraße 16, 10245 Berlin", city: "Berlin", description: "Stylish restaurant serving Alpine cuisine in the trendy neighbourhood of Friedrichshain.")
+restaurant4 = Restaurant.create(name: "Schneeweiß", address: "Simplonstraße 16, 10245 Berlin", city: "Berlin", description: "Stylish restaurant serving Alpine cuisine in the trendy neighbourhood of Friedrichshain.", cuisine: "Alpine")
 restaurant4.photo.attach(io: file4, filename: 'schneeweiss.jpg', content_type: 'image/jpg')
 
 # ### City 2
