@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/meals/:meal_id/recipe', to: 'meals#recipe', as: 'recipe'
 
   resources :orders, only: [:show, :edit, :update]
-  
+
   resources :order_items, only: [:edit, :update, :destroy]
 
 end
