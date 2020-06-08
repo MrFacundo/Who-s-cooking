@@ -13,7 +13,7 @@
   </div>
 
 
-<%= link_to '<button type="button">See all Meals</button>'.html_safe, restaurants_path(query: "Meals", city: params[:city])%>
+<%= link_to '<button type="button">See all Meals</button>'.html_safe, restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine])%>
 
 <%= link_to '<button type="button">See all Restaurants</button>'.html_safe, restaurants_path(query: "Restaurants", city: params[:city])%>
 

@@ -3,8 +3,8 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
-    @meals = Meal.all
     @order_item = OrderItem.new
+    @meals = Meal.joins(:restaurant)
 
     if params[:city].present?
       city_search
