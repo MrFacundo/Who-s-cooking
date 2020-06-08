@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner_index_restaurants.jpg" %>'); text-align: center;">
   <div class="container">
-    <h1>The best meals in the city on your dinner table!</h1>
+    <h1>You can choose from <%= pluralize @restaurants.size, "restaurant" %>!</h1>
   </div>
 </div>
 
@@ -12,7 +12,7 @@
       <% end %>
   </div>
 
-<%= link_to "See Meals", restaurants_path(query: "Meals", city: params[:city])%> 
+<%= link_to "See Meals", restaurants_path(query: "Meals", city: params[:city])%>
 
   <div class="container d-flex mt-5">
     <div class="col-2">
