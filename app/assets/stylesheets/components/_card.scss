@@ -1,3 +1,92 @@
+.card-details {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 80%;
+  margin-left: 10%;
+  border: 1px solid rgb(230,230,230);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: #ffffff;
+  border-radius: 10px;
+  .card-meta img {
+    height: 100%;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+  }
+  .card-description {
+    margin-top: 30px;
+    width: 55%;
+    text-align: left; 
+    h1 {
+      margin-top: 20px;
+      font-size: 1.7rem;
+      margin-bottom: 0;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    p {
+      color: $gray;
+      font-size: 0.8rem;
+    }
+    h4 {
+    font-size: 0.8rem;
+    color: $orange;
+    text-transform: uppercase;
+    }
+  }
+  .category {
+    opacity: 0.5;
+    color: $orange;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  .card-avatar {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+  }
+  .avatar-large {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border: 3px solid rgb(255, 255, 255);
+  }
+  .add {
+    position: absolute;
+    right: 20px;
+    bottom: 0px;
+  }
+  .difficulty img {
+    width: 15px;
+    margin-left: 3px;
+    padding-bottom: 10px;
+  }
+  .difficulty-level {
+    position: absolute;
+    right: 20px;
+  }
+  #order_item_quantity {
+    width: 50px;
+    height:50px;
+    opacity: 0.5;
+  }
+  label {
+    display: none;
+  }
+  .submit {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+
+
 .card {
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -15,11 +104,6 @@
   text-align: center;
   border-top: 0px solid rgba(0, 0, 0, 0.125);
   background-color: white;
-  .avatar-large {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-  }
 }
 
 .card-footer .inactive {
@@ -46,53 +130,3 @@
  margin-top: 20px;
  margin-bottom: 0;
 }
-
-// Collabsible cards
-
-
-.card input[type='checkbox'] {
-  display: none;
-}
-
-.lbl-toggle {
-  color: #333333;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.25s ease-out;
-
-}
-
-.lbl-toggle::before {
-  content: ' ';
-  display: inline-block;
-
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid currentColor;
-
-  vertical-align: middle;
-  margin-right: .7rem;
-  transform: translateY(-2px);
-
-  transition: transform .2s ease-out;
-}
-
-.collapsible-content {
-  max-height: 0px;
-  overflow: hidden;
-  transition: max-height .25s ease-in-out;
-}
-
-.toggle:checked + .lbl-toggle + .collapsible-content {
-  max-height: 100vh;
-}
-
-.toggle:checked + .lbl-toggle::before {
-  transform: rotate(90deg) translateX(-3px);
-}
-
-.toggle:checked + .lbl-toggle {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
