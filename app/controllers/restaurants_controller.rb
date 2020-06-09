@@ -7,8 +7,6 @@ class RestaurantsController < ApplicationController
     @meals = Meal.all
     @categories = Category.all
 
-    raise
-
     if params[:city].present?
       city_search
       @meals = @meals.joins(:restaurant).where(restaurants: {city: params[:city]}) 
@@ -38,7 +36,6 @@ class RestaurantsController < ApplicationController
     if params[:menu_type].present?
       @meals = @meals.where("menu_type <= ?", params[:menu_type])
     end
-
   end
 
   def show
