@@ -6,9 +6,42 @@
       <%= image_tag "restaurant.jpg" %>
     <% end %>
     <div class="card-footer">
-      <h3><%= link_to restaurant.name, restaurant_path(restaurant), class: "border-bottom" %></h3>
-      <div></div>
-      <p><%= restaurant.description %></p>
+      <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+      <h4>
+        <% restaurant.chefs.each do |chef| %>
+        <%= chef.first_name %>
+        <% end %>
+      </h4>
+
+      <div class="extra-info border-top">
+        <p><span class="border border-dark p-1"><%=restaurant.meals.size %></span> Meal Kits</p>
+        <p><em> <%= restaurant.cuisine %> cuisine </em></p>
+        <% if restaurant.reviews.present?%>
+
+        <!-- Calculating the review average if restaurant has reviews -->
+          <% counter = 0 %>
+          <% restaurant.reviews.each do |review| %>
+            <% counter += review.rating  %>
+          <% end %>
+          <% avg = (counter / restaurant.reviews.size) %>
+          <% avg %>
+          <ul class="list-inline p-1">
+            <% avg.times do %>
+              <li class="list-inline-item"><i class="fas fa-star" style="font-size: 10px;"></i></li>
+            <% end %>
+            <% (5-avg).times do %>
+              <li class="list-inline-item"><i class="far fa-star" style="font-size: 10px;"></i></li>
+            <% end %>
+          </ul>
+
+          <!-- If restaurant has no reviews display 0 reviews -->
+        <% else %>
+          <p><%= pluralize restaurant.reviews.size, "Review" %></p>
+        <% end %>
+      </div>
+      <div class="description">
+        <p><%= restaurant.description %></p>
+      </div>
     </div>
   </div>
 <% end %>
