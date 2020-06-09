@@ -21,7 +21,7 @@ class RestaurantsController < ApplicationController
       @meals = @meals.where("price <= ?", params[:price])
     end
 
-    if params[:category] != [""]
+    if params[:category].present? && params[:category].length > 1
       @meals = @meals.joins(:meal_categories).where(meal_categories: { category_id: params[:category] })
     end
 

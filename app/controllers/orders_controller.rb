@@ -1,5 +1,9 @@
 class OrdersController < ApplicationController
 
+  def index
+    @orders = current_user.orders.where(paid: true)
+  end
+
   def show
     @order = Order.find(params[:id])
   end

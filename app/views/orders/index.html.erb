@@ -1,0 +1,13 @@
+<div class="container">
+  <% @orders.each do |order| %>
+    <ul>
+      <li> Order from <%= order.restaurant.name %> from <%= order.created_at %>
+        <% if order.review.nil? %>
+          <%= link_to "Leave a Review", new_order_review_path(order), class: "btn btn-info"%>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+
+
+</div>
