@@ -19,3 +19,6 @@ import 'bootstrap';
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+
+import { searchAlgoliaPlaces } from '../components/algolia';
+

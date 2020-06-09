@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -20,5 +19,11 @@
       <%= render 'shared/flashes' %>
       <div class="footer-container"><%= render "shared/footer"%></div>
     </div>
+
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </body>
 </html>
+
+
