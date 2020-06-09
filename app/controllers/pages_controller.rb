@@ -1,28 +1,19 @@
 class PagesController < ApplicationController
- skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: :home
 
   def home
   end
 
   def dashboard
-
-    orders = current_user.orders.where(paid:true) #TO DO: where order.reviews = nil
+    @orders = current_user.orders.where(paid: true)
     @new_meals = []
-    @cookbook_meals = []
-    @new_meals = @new_meals.uniq
 
-    orders.each do |o|
+    @orders.each do |o|
       o.order_items.each do |oi|
-        if oi.order.review.nil?
-          @new_meals << oi.meal
-        else
-          @cookbook_meals << oi.meal
-        end
+        @new_meals << oi.meal
       end
     end
 
-    @cookbook_meals  = @cookbook_meals.uniq if !nil
-
+    @new_meals = @new_meals.uniq
   end
-
 end

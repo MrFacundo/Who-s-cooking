@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="form mt-3">
+    <%= simple_form_for([ @order, @review ]) do |f| %>
+      <div class= "form-group">
+        <%= f.input :content, class: "form-control" %>
+        <%= f.input :rating, class: "form-control" %>
+        <%= f.submit "Submit Review", class: "form-control btn btn-info" %>
+      </div>
+    <% end %>
+  </div>
+</div>
