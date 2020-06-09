@@ -6,21 +6,24 @@
     </div>
 
     <div class="row justify-content-center pt-5">
-    <div class="col-6">
+    <div class="col-9">
 
     <% @order.order_items.each do |oi| %>
-      <div class="row justify-content-around">
+      <%= simple_form_for oi do |f| %>
+        <div class="order-form">
         <p><%= oi.meal.name %></p>
-        <%= simple_form_for oi do |f| %>
-          <div class= "form-inline">
             <%= f.input :quantity, label: false, class: "form-control" %>
-            <%= f.submit "Update".html_safe, class: "form-control"  %>
-          </div>
-        <% end %>
-        <%= link_to "<i class='fas fa-times'></i>".html_safe, order_item_path(oi.id), method: :delete %>
-      </div>
-    <% end %>
+            <p>€<%= oi.meal.price * oi.quantity %></p>
 
+            <%= f.submit "Update".html_safe, class: "form-control"  %>
+        <%= link_to "<i class='fas fa-times'></i>".html_safe, order_item_path(oi.id), method: :delete %>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="order-form-2" >
+      <p></p>
+      <p><strong>Total price:</strong></p style:'margin-top: 10px'>
+      <p><strong>€ <%= @order.total_price  %></strong></p></div>
     <div class="form mt-3">
       <%= simple_form_for [ @order ] do |f| %>
         <div class= "form-group">

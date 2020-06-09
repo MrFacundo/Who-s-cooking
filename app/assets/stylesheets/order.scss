@@ -1,3 +1,21 @@
-// Place all the styles related to the Order controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.order-form {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr min-content min-content;
+  width: 100%;
+  align-items: center;
+  grid-gap: 20px;
+}
+
+
+.order-form-2 {
+  display: grid;
+  grid-template-columns: 0.5fr 0.3fr  0.5fr;
+  grid-gap: 20px;
+  border-top: 1px solid #e6e6e6;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.order-form-2 p {
+  margin-top: 20px;
+}
