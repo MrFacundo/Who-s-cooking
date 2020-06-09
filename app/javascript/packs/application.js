@@ -19,6 +19,11 @@ import 'bootstrap';
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
-import { searchAlgoliaPlaces } from '../components/algolia';
+document.addEventListener('turbolinks:load', () => {
+    // Call your functions here, e.g:
+    // initSelect2();
+    initAutocomplete();
+});
 
