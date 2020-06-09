@@ -1,6 +1,10 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner_index_restaurants.jpg" %>'); text-align: center;">
   <div class="container">
-    <h1>You can choose from <%= pluralize @restaurants.size, "restaurant" %>!</h1>
+    <% if params[:query] == "Meals" %>
+      <h1>You can choose from <%= pluralize @meals.size, "meal kit" %>!</h1>
+    <% else %>
+      <h1>You can choose from <%= pluralize @restaurants.size, "restaurant" %>!</h1>
+    <% end %>
   </div>
 </div>
 
@@ -13,7 +17,6 @@
   </div>
 
 
-
 <%= link_to '<button type="button">See all Meals</button>'.html_safe, restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine])%>
 
 <%= link_to '<button type="button">See all Restaurants</button>'.html_safe, restaurants_path(query: "Restaurants", city: params[:city])%>
@@ -23,6 +26,7 @@
     <div class="col-2">
       
     </div>
+
     <div class="col-10">
       <div class="row justify-content-center">
         <% if params[:query] == "Meals" %>
