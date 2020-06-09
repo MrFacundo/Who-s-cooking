@@ -1,99 +1,52 @@
-<% meals.each do |meal| %>
-<div class="container mt-5" id="meal-<%= meal.id %>">
-  <div class="row justify-content-center">
-    <div class="col-8">
-        <div class="card mb-3 mt-3">
+<div class="container">
+  <% meals.each do |meal| %>
+      <div class="card-details">
+        <div class="card-meta">
           <% if meal.photo.attached? %>
             <%= cl_image_tag meal.photo.key %>
           <% else %>
             <%= image_tag "meal_placeholder.jpg" %>
           <% end %>
-
-          <div class="card-footer pt-0">
-
-            <div class="prep-info">
-              <p><strong>Difficulty</strong></p>
-              <p><i class="far fa-clock"></i> <strong> Preptime</strong></p>
-            </div>
-
-            <div class="prep-info">
-              <div class="text-left" id="meal-difficulty">
-                <ul class="list-inline mt-0">
-                  <% meal.difficulty.times do %>
-                    <li class="list-inline-item"><i class="fas fa-utensil-spoon"></i></li>
-                  <% end %>
-                  <% (5-meal.difficulty).times do %>
-                    <li class="list-inline-item inactive"><i class="fas fa-utensil-spoon"></i></li>
-                  <% end %>
-                </ul>
-              </div>
-              <div class="text-right" id="preptime">
-                <%= meal.prep_time %> Min.
-              </div>
-            </div>
-
-            <div class="prep-info">
-              <div class="text-left mt-3" id="meal-description">
-                <h3><%= meal.name %></h3>
-                <h4><i><%= meal.restaurant.name %></i></h4>
-              </div>
-              <div class="text-right mt-3">
-                <h4><strong><%= meal.price %> €</strong></h4>
-              </div>
-            </div>
-
-            <div class="text-right" id="meal-categories">
-              <ul class="list-inline mb-0">
-                <% meal.categories.all.each do |c| %>
-                  <% if c.name == "Vegan" %>
-                    <li class="list-inline-item"> <span data-tooltip=<%= c.name  %>> <i class="fas fa-seedling"></i></span></li>
-                  <% elsif c.name == "Vegetarian"%>
-                    <li class="list-inline-item"> <span data-tooltip=<%= c.name  %>> <i class="fas fa-carrot"></span></i></li>
-                  <% elsif c.name == "Seafood" %>
-                    <li class="list-inline-item"> <span data-tooltip=<%= c.name  %>> <i class="fas fa-fish"></i></span></li>
-                  <% elsif c.name == "Spicy" %>
-                    <li class="list-inline-item"><span data-tooltip=<%= c.name  %>> <i class="fas fa-pepper-hot"></i></span></li>
-                  <% elsif c.name == "Low Carb" %>
-                    <li class="list-inline-item"> <i class="fas fa-dumbbell"></i></li>
-                  <% end %>
+        </div>
+        <div class="card-description">
+          <div class="difficulty-level">
+            <ul class="list-inline mt-0 d-flex">
+              <p class="list-inline mt-0 mr-2">Difficulty Level</p>
+              <div class="difficulty">
+                <% meal.difficulty.times do %>
+                  <%= image_tag "hat.svg" %>
                 <% end %>
-              </ul>
-            </div>
-
-          </div>
-
-          <div class="card-footer wrap-collabsible">
-            <input id="collapsible-<%=meal.id%>" class="toggle" type="checkbox">
-            <label for="collapsible-<%=meal.id%>" class="lbl-toggle d-flex justify-content-end"></label>
-              <div class="collapsible-content">
-                <div class="content-inner text-left">
-                  <div class="text-left mt-3" id="meal-description">
-                    <p><strong>Meal Description: </strong><%= meal.description %></p>
-                    <p><strong>Cooking Experience: </strong>An experience with us is like no other. It is amazing and really fun.</p>
-                    <p><strong>Meet your chef: </strong></p>
-                    <div class = "d-flex justify-content-start">
-                      <% if meal.chef.photo.attached? %>
-                        <%= cl_image_tag meal.chef.photo.key, class: "avatar-large mr-3", alt: "avatar-large" %>
-                      <% else %>
-                        <%= image_tag "chef1.jpg", class: "avatar-large mr-3", alt: "avatar-large" %>
-                      <% end %>
-                      <p><%= meal.chef.first_name %> <%= meal.chef.last_name %></p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form d-flex justify-content-end">
-                  <%= simple_form_for([ meal, order_item ]) do |f| %>
-                    <div class= "form-group">
-                      <%= f.input :quantity, class: "form-control" %>
-                      <%= f.submit "Order", class: "form-control btn btn-info" %>
-                    </div>
-                  <% end %>
-                </div>
               </div>
+            </ul>
+          </div>
+          <h4><%= meal.restaurant.name %></h4>
+          <h1><%=meal.name %> with <%= meal.chef.first_name %></h1>
+          <p><%= meal.description %></p>         
+          <h1><i><%=meal.price %> €</i></h1>
+          <p><i class="far fa-clock"></i> <%= meal.prep_time %> min.</p>
+          <div>
+            <ul class="list-inline mb-3">
+              <% meal.categories.all.each do |c| %>
+                <p class="btn btn-outline-secondary category btn-sm disabled"><%= c.name %></p>
+              <% end %>
+            </ul>
+          </div>
+          <div class="add">
+            <%= simple_form_for([ meal, order_item ]) do |f| %>
+              <div class= "form-group d-flex text-center">
+                <%= f.input :quantity, input_html: {value: f.object.quantity || '4'}, class: "form-control input" %>
+                <%= f.submit "+", class: "btn btn-info submit" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="card-avatar">
+            <% if meal.chef.photo.attached? %>
+              <%= cl_image_tag meal.chef.photo.key, class: "avatar-large mr-3", alt: "Meet your chef!" %>
+            <% else %>
+              <%= image_tag "chef1.jpg", class: "avatar-large mr-3", alt: "Meet your chef!" %>
+            <% end %>
           </div>
         </div>
-    </div>
-  </div>
+      </div>
+  <% end %>
 </div>
-<% end %>
