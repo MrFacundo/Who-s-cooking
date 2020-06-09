@@ -2,7 +2,7 @@ class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    
+
   end
 
   def show
@@ -12,7 +12,7 @@ class MealsController < ApplicationController
 
   def recipe
     @meal = Meal.find(params[:meal_id])
-    @paid_orders = current_user.orders.where(paid:true)
+    @paid_orders = current_user.orders.where(paid: true)
     @paid_meals = []
     @paid_orders.each do |o|
       o.order_items.each do |oi|
