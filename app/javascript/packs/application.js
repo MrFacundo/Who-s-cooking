@@ -18,7 +18,14 @@ import 'bootstrap';
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import "controllers"
+import "controllers";
+
+$(document).ready(function(){
+  setTimeout(function(){
+  $('.alert').fadeOut();
+  }, 4000);
+});
+
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
