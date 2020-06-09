@@ -28,7 +28,8 @@
         <%= f.input :cuisine, as: :hidden, input_html: { value: params[:cuisine]} %>
         <%= f.input :query, as: :hidden, input_html: { value: params[:query]} %>
         <%= f.input :price, as: :range, input_html: { min: '0', max: '40', step: 1 } %>
-        <%= f.input :categories, as: :check_boxes, collection: @categories %>
+        <%= f.input :category, as: :check_boxes, collection: @categories, :input_html => { :checked => false } %>
+        <%= f.input :menu_type, collection: Meal::MENU %>
         <%= f.input :difficulty, collection: (1..3) %>
         <%= f.input :preptime, as: :range, input_html: { min: '0', max: '40', step: 10 } %>
         <%= f.button :submit %>

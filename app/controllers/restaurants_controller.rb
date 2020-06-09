@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
 
     if params[:city].present?
       city_search
-      @meals = Meal.joins(:restaurant).where(restaurants: {city: params[:city]})
+      @meals = Meal.joins(:restaurant).where(restaurants: {city: params[:city]}) 
     end
 
     if params[:cuisine].present?
@@ -17,9 +17,9 @@ class RestaurantsController < ApplicationController
       meal_cusine_search(params[:cuisine])
     end
 
-    # if params[:category].present?
-    #   @meals = Meal.where(category: params[:category])
-    # end
+    if params[:category].present?
+      @meals = Meal.joins(:meal_categories).where(meal_categories: { category_id: params[:category] })
+    end
 
     # if params[:preptime].present?
     #   @meals = Meal.where(preptime: < params[preptime])
