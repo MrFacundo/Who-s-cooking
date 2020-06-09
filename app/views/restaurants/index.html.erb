@@ -9,30 +9,43 @@
 </div>
 
 <div class="container">
+
   <div class="mt-3">
     <%= simple_form_for "" , url: restaurants_path, method: :get do |f| %>
-          <%= f.input :cuisine, prompt: "Select the cuisine!", label: false, collection: Restaurant::CUISINE %>
+          <%= f.input :cuisine, prompt: "Select the cuisine!", label: false, collection: Restaurant::CUISINE, input_html: { value: params[:cuisine]} %>
           <%= f.button :submit, "Search!", class: "btn-info" %>
-      <% end %>
+    <% end %>
   </div>
 
+  <%= link_to '<button type="button">See all Meals</button>'.html_safe, restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine])%>
 
-<%= link_to '<button type="button">See all Meals</button>'.html_safe, restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine])%>
-
-<%= link_to '<button type="button">See all Restaurants</button>'.html_safe, restaurants_path(query: "Restaurants", city: params[:city])%>
+  <%= link_to '<button type="button">See all Restaurants</button>'.html_safe, restaurants_path(query: "Restaurants", city: params[:city])%>
 
 
-  <div class="container d-flex mt-5">
-
-    <div class="col-10">
-      <div class="row justify-content-center">
-        <% if params[:query] == "Meals" %>
-          <%= render "shared/meals_show", meals: @meals, order_item: @order_item %>
-        <% else %>
-          <%= render "shared/restaurants_index" %>
+  <% if params[:query] == "Meals" %>
+    <div class="container d-flex mt-5">
+      <div class="col-2">
+        <%= simple_form_for "", url: restaurants_path, method: :get do |f| %>
+          <%= f.input :cuisine, as: :hidden, input_html: { value: params[:cuisine]} %>
+          <%= f.input :city, as: :hidden, input_html: { value: params[:city]} %>
+          <%= f.input :query, as: :hidden, input_html: { value: params[:query]} %>
+          <%= f.input :price, as: :range, input_html: { min: '15', max: '80', step: 5 } %>
+          <%= f.input :category, as: :check_boxes, collection: @categories, :input_html => { :checked => false } %>
+          <%= f.input :menu_type, collection: Meal::MENU %>
+          <%= f.input :difficulty, collection: (1..3) %>
+          <%= f.input :preptime, as: :range, input_html: { min: '0', max: '300', step: 10 } %>
+          <%= f.button :submit %>
         <% end %>
       </div>
+      <div class="col-10">
+        <%= render "shared/meals_show", meals: @meals, order_item: @order_item %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="col-12 justify-content-center">
+      <%= render "shared/restaurants_index" %>
+    </div>
+  <% end %>
+  
 </div>
 
