@@ -4,12 +4,12 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
     @order_item = OrderItem.new
-    @meals = Meal.joins(:restaurant)
+    @meals = Meal.all
     @categories = Category.all
 
     if params[:city].present?
       city_search
-      @meals = Meal.joins(:restaurant).where(restaurants: {city: params[:city]}) 
+      @meals = @meals.joins(:restaurant).where(restaurants: {city: params[:city]}) 
     end
 
     if params[:cuisine].present?
@@ -17,16 +17,20 @@ class RestaurantsController < ApplicationController
       meal_cusine_search(params[:cuisine])
     end
 
-    if params[:category].present?
-      @meals = Meal.joins(:meal_categories).where(meal_categories: { category_id: params[:category] })
+    if params[:category] != [""]
+      @meals = @meals.joins(:meal_categories).where(meal_categories: { category_id: params[:category] })
     end
 
-    # if params[:preptime].present?
-    #   @meals = Meal.where(preptime: < params[preptime])
-    # end
+    if params[:preptime].present?
+      @meals = @meals.where("prep_time <= ?", params[:preptime])
+    end
 
     if params[:difficulty].present?
       @meals = @meals.where("difficulty <= ? ", params[:difficulty])
+    end
+
+    if params[:menu_type].present?
+      @meals = @meals.where("menu_type <= ?", params[:menu_type])
     end
 
   end
