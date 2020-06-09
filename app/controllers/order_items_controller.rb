@@ -39,6 +39,8 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.find(params[:id])
     @order = @order_item.order
     @order_item.update(order_item_params)
+    @order.total_price = t_price(@order)
+    @order.save
     redirect_to edit_order_path(@order)
   end
 
@@ -46,6 +48,8 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.find(params[:id])
     @order = @order_item.order
     @order_item.destroy
+    @order.total_price = t_price(@order)
+    @order.save
     redirect_to edit_order_path(@order), notice: 'Meal has been removed from shopping cart'
   end
 

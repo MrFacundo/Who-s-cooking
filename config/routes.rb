@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   get '/meals/:meal_id/recipe', to: 'meals#recipe', as: 'recipe'
 
-  resources :orders, only: [:show, :edit, :update]
+  resources :orders, only: [:show, :edit, :update, :index] do
+    resources :reviews, only: [:new, :create]
+  end
 
   resources :order_items, only: [:edit, :update, :destroy]
 
