@@ -19,3 +19,9 @@ import 'bootstrap';
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+
+$(document).ready(function(){
+  setTimeout(function(){
+  $('.alert').fadeOut();
+  }, 4000);
+})
