@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
     @order_item = OrderItem.new
     @meals = Meal.joins(:restaurant)
+    @categories = Category.all
 
     if params[:city].present?
       city_search
@@ -16,6 +17,18 @@ class RestaurantsController < ApplicationController
       meal_cusine_search(params[:cuisine])
     end
 
+    # if params[:category].present?
+    #   @meals = Meal.where(category: params[:category])
+    # end
+
+    # if params[:preptime].present?
+    #   @meals = Meal.where(preptime: < params[preptime])
+    # end
+
+    if params[:difficulty].present?
+      @meals = @meals.where("difficulty <= ? ", params[:difficulty])
+    end
+
   end
 
   def show
@@ -25,9 +38,6 @@ class RestaurantsController < ApplicationController
 
   private
 
-  # def meal_city_search(query)
-  #   @meals = Meal.joins(:restaurant).where(restaurants: {city: query})
-  # end
 
   def city_search
     @restaurants = @restaurants.where(city: params[:city])
