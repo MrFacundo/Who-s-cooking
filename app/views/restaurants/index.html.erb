@@ -12,8 +12,10 @@
 
   <div class="mt-3">
     <%= simple_form_for "" , url: restaurants_path, method: :get do |f| %>
-          <%= f.input :cuisine, prompt: "Select the cuisine!", label: false, collection: Restaurant::CUISINE, input_html: { value: params[:cuisine]} %>
-          <%= f.button :submit, "Search!", class: "btn-info" %>
+      <%= f.input :cuisine, prompt: "Select the cuisine!", label: false, collection: Restaurant::CUISINE, input_html: { value: params[:cuisine]} %>
+      <%= f.input :city, as: :hidden, input_html: { value: params[:city]} %>
+      <%= f.input :query, as: :hidden, input_html: { value: params[:query]} %>
+      <%= f.button :submit, "Search!", class: "btn-info" %>
     <% end %>
   </div>
 
