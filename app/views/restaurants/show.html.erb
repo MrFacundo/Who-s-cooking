@@ -1,19 +1,27 @@
 <div class="banner" style= "
-  <% if @restaurant.photo.attached? %>
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @restaurant.photo.key %>); text-align: center;
+  <% if @restaurant.photos.attached? %>
+    background-image: url(<%= cl_image_path @restaurant.photos[0].key %>); text-align: center;
   <% else %>
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'restaurant_banner.jpg' %>); text-align: center;
+    background-image: url(<%= image_path 'restaurant_banner.jpg' %>); text-align: center;
   <% end %>">
 </div>
-
-<div class="container justify-content-center mt-5 mb-5">
-  <h1>Welcome to <%= @restaurant.name %>!</h1>
-  <h2>Our Philosophy</h2>
-  <p><%= @restaurant.description %></p>
-  <p><%= @restaurant.description %></p>
+<div class="containermt-7 col-10 mb-0"></div>
+  <div class="container justify-content-center mt-5 mb-5">
+    <div class="restaurant">
+      <div class="restaurant-logo">
+        <% if @restaurant.photos.attached? %>
+          <%= cl_image_tag @restaurant.photos[1].key %>
+        <% else %>
+          <%= image_tag 'hat.svg' %>
+        <% end %>
+      </div>
+      <div class="restaurant-description">
+        <h1>Welcome to <%= @restaurant.name %>!</h1>
+        <p><%= @restaurant.description %></p>
+    </div>
+  </div>
 </div>
-
-<div class="container">
+<div class="container mt-0">
   <div class="row justify-content-center">
     <h1>Our Home Cooking Experiences</h1>
   </div>
