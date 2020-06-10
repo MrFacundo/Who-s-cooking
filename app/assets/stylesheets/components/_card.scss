@@ -74,6 +74,9 @@
     height:50px;
     opacity: 0.5;
     color: black;
+    &:focus {
+      border-color: gray;
+    }
   }
 
 
