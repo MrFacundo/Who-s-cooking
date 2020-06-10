@@ -90,8 +90,6 @@
   }
 }
 
-
-
 .card {
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -151,7 +149,6 @@
   overflow: hidden;
   height: 160px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border: 1px solid $border-grey;
   display: flex;
   align-items: center;
@@ -159,7 +156,7 @@
 
 .card-order img {
   height: 100%;
-  width: 120px;
+  width: 130px;
   object-fit: cover;
 }
 
@@ -182,4 +179,10 @@
 .card-order .card-order-infos {
   padding: 16px;
 
+}
+
+#card-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
 }

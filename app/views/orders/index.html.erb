@@ -1,24 +1,23 @@
 <div class="container mt-3">
-
-  <h1>Your orders:</h1>
-
-  <% @orders.each do |order| %>
-    <div class="card-order mt-3">
-      <% if order.restaurant.photo.attached? %>
-        <%= cl_image_tag order.restaurant.photo.key %>
-      <% else %>
-        <%= image_tag "restaurant.jpg" %>
-      <% end %>
-      <div class="card-order-infos">
-        <%= link_to order.restaurant.name.upcase, restaurant_path(order.restaurant), class: "stretched-link" %>
-        <p><strong> <%=  order.delivery_time.to_formatted_s(:short) %></strong></p>
-        <p>Delivered to <strong> <%= order.delivery_address  %></strong></p>
-        <p><strong> <%= order.total_price  %> €</strong></p>
-        <% if order.review.nil? %>
-          <p><%= link_to "Leave a Review", new_order_review_path(order), style: "color: #EF6E49;"%></p>
+  <h1 class="text-center">Your orders</h1>
+  <div id="card-display">
+    <% @orders.each do |order| %>
+      <div class="card-order mt-3">
+        <% if order.restaurant.photos.attached? %>
+          <%= cl_image_tag order.restaurant.photos[0].key %>
+        <% else %>
+          <%= image_tag "restaurant.jpg" %>
         <% end %>
+        <div class="card-order-infos">
+          <%= link_to order.restaurant.name.upcase, restaurant_path(order.restaurant) %>
+          <p><strong> <%=  order.delivery_time.to_formatted_s(:short) %></strong></p>
+          <p>Delivered to <strong> <%= order.delivery_address  %></strong></p>
+          <p><strong> <%= order.total_price  %> €</strong></p>
+          <% if order.review.nil? %>
+            <p><%= link_to "Leave a Review", new_order_review_path(order), style: "color: #EF6E49;"%></p>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
-
+    <% end %>
+  </div>
 </div>
