@@ -119,8 +119,10 @@ puts "Creating meals..."
 # Meals Chef 1 / Restaurant 1
 
 photo1 = URI.open('https://storage.needpix.com/rsynced_images/tortelloni-2963581_1280.jpg')
-meal1 = Meal.create(name: "Agnolotti", difficulty: 3, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish")
+meal1 = Meal.create(name: "Agnolotti", difficulty: 3, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish", video: 'https://player.vimeo.com/video/371813808')
 meal1.photo.attach(io: photo1, filename: 'agnolotti.jpg', content_type: 'image/jpg')
+
+
 
 photo2 = URI.open('https://images.pexels.com/photos/1374586/pexels-photo-1374586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
 meal2 = Meal.create(name: "Flatbread", difficulty: 2, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter")
