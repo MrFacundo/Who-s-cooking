@@ -3,7 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
+/* require("@rails/ujs").start() */
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
@@ -19,14 +19,13 @@ import 'bootstrap';
 // const imagePath = (name) => images(name, true)
 
 import "controllers";
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 $(document).ready(function(){
   setTimeout(function(){
   $('.alert').fadeOut();
   }, 4000);
 });
-
-import { initAutocomplete } from '../plugins/init_autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
     // Call your functions here, e.g:

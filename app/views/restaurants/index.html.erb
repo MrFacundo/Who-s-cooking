@@ -8,20 +8,21 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container pt-5">
 
-  <div class="mt-3">
+  <div class="container d-flex flex-row justify-content-around">
+      <%= link_to "RESTAURANTS", restaurants_path(query: "Restaurants", city: params[:city]), class: params[:query] == "Restaurants"? "main-button selected" : "main-button", remote: true %>
+      <%= link_to "MEAL KITS", restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine]), class: params[:query] == "Meals"? "main-button selected" : "main-button", remote: true %>
+  </div>
+
+  <div class="cuisine-scroll mt-5">
     <%= simple_form_for "" , url: restaurants_path, method: :get do |f| %>
       <%= f.input :city, as: :hidden, input_html: { value: params[:city]} %>
       <%= f.input :query, as: :hidden, input_html: { value: params[:query]} %>
-      <%= f.input :cuisine, prompt: "Select the cuisine!", label: false, collection: Restaurant::CUISINE, input_html: { value: params[:cuisine]} %>
+      <%= f.input :cuisine, as: :check_boxes, label: false, collection: Restaurant::CUISINE, wrapper: :vertical_collection_inline, input_html: { :checked => false, value: params[:cuisine] } %>
       <%= f.button :submit, "Search!", class: "btn-info" %>
     <% end %>
   </div>
-
-  <%= link_to '<button type="button">See all Meals</button>'.html_safe, restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine])%>
-
-  <%= link_to '<button type="button">See all Restaurants</button>'.html_safe, restaurants_path(query: "Restaurants", city: params[:city])%>
 
 
   <% if params[:query] == "Meals" %>
