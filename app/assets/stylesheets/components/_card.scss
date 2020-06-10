@@ -90,8 +90,6 @@
   }
 }
 
-
-
 .card {
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -144,4 +142,47 @@
 .card p {
  margin-top: 20px;
  margin-bottom: 0;
+}
+
+
+.card-order {
+  overflow: hidden;
+  height: 160px;
+  background: white;
+  border: 1px solid $border-grey;
+  display: flex;
+  align-items: center;
+}
+
+.card-order img {
+  height: 100%;
+  width: 130px;
+  object-fit: cover;
+}
+
+.card-order a {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+  color: $gray;
+  text-decoration: none;
+}
+
+.card-order p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-order .card-order-infos {
+  padding: 16px;
+
+}
+
+#card-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
 }
