@@ -14,20 +14,15 @@
       <div class="extra-info border-top">
         <p style="width: 250px;"><span class="border border-dark p-1"><%=restaurant.meals.size %></span> Meal Kits</p>
         <p style="width: 250px;"><em> <%= restaurant.cuisine %> cuisine </em></p>
-        <% if restaurant.reviews.present?%>
+        <% if restaurant.average_review %>
 
-        <!-- Calculating the review average if restaurant has reviews -->
-          <% counter = 0 %>
-          <% restaurant.reviews.each do |review| %>
-            <% counter += review.rating  %>
-          <% end %>
-          <% avg = (counter / restaurant.reviews.size) %>
-          <% avg %>
+        <!-- Display if restaurant has reviews -->
+
           <ul class="list-inline p-1" style="width: 250px;">
-            <% avg.times do %>
+            <% restaurant.average_review.times do %>
               <li class="list-inline-item"><i class="fas fa-star" style="font-size: 10px;"></i></li>
             <% end %>
-            <% (5-avg).times do %>
+            <% (5-restaurant.average_review).times do %>
               <li class="list-inline-item"><i class="far fa-star" style="font-size: 10px;"></i></li>
             <% end %>
           </ul>

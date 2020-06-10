@@ -12,4 +12,14 @@ class Restaurant < ApplicationRecord
 
   validates :city, presence: true, inclusion: { in: CITY }
   validates :cuisine, presence: true, inclusion: { in: CUISINE }
+
+  def average_review
+    counter = 0
+    if reviews.present?
+      reviews.each do |review|
+        counter += review.rating
+      end
+      counter / reviews.size
+    end
+  end
 end
