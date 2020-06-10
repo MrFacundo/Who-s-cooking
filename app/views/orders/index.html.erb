@@ -1,13 +1,23 @@
-<div class="container">
-  <% @orders.each do |order| %>
-    <ul>
-      <li> Order from <%= order.restaurant.name %> from <%= order.created_at %>
-        <% if order.review.nil? %>
-          <%= link_to "Leave a Review", new_order_review_path(order), class: "btn btn-info"%>
+<div class="container mt-3">
+  <h1 class="text-center">Your orders</h1>
+  <div id="card-display">
+    <% @orders.each do |order| %>
+      <div class="card-order mt-3">
+        <% if order.restaurant.photos.attached? %>
+          <%= cl_image_tag order.restaurant.photos[0].key %>
+        <% else %>
+          <%= image_tag "restaurant.jpg" %>
         <% end %>
-      </li>
-    </ul>
-  <% end %>
-
-
+        <div class="card-order-infos">
+          <%= link_to order.restaurant.name.upcase, restaurant_path(order.restaurant) %>
+          <p><strong> <%=  order.delivery_time.to_formatted_s(:short) %></strong></p>
+          <p>Delivered to <strong> <%= order.delivery_address  %></strong></p>
+          <p><strong> <%= order.total_price  %> €</strong></p>
+          <% if order.review.nil? %>
+            <p><%= link_to "Leave a Review", new_order_review_path(order), style: "color: #EF6E49;"%></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

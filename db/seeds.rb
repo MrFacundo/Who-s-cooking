@@ -37,13 +37,13 @@ restaurant1.photos.attach(io: file1, filename: 'frea.jpg', content_type: 'image/
 restaurant1.photos.attach(io: file5, filename: 'vegan.jpg', content_type: 'image/jpg')
 
 file2 = URI.open('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
-file6 = URI.open('https://image.freepik.com/free-vector/luxurious-thai-pattern-with-golden-style_23-2147897288.jpg')
+file6 = URI.open('https://lemongrassbali.com/images/res.png')
 restaurant2 = Restaurant.create(name: "Lemongrass", address: "Simon-Dach-Straße 2, 10245 Berlin", city: "Berlin", description: "One of the best Thai places in the city with an authentic Pad-Thai recipe. Our recipes were created with a lot of care and attention by our amazing chef who has dedicated his life to exploring the best food in the world.", cuisine: "Thai")
 restaurant2.photos.attach(io: file2, filename: 'lemongrass.jpg', content_type: 'image/jpg')
 restaurant2.photos.attach(io: file6, filename: 'thai_pattern.jpg', content_type: 'image/jpg')
 
 file3 = URI.open('https://images.pexels.com/photos/9315/menu-restaurant-france-eating-9315.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-file7 = URI.open('https://image.freepik.com/free-vector/restaurant-chef-character_23-2147518935.jpg')
+file7 = URI.open('https://cdn1.vectorstock.com/i/1000x1000/08/50/italian-food-logo-designs-vector-29590850.jpg')
 restaurant3 = Restaurant.create(name: "Papa Pane", address: "Ackerstraße 23, 10115 Berlin", city: "Berlin", description: "Authentic Italian food in the heart of Berlin! The best Napoli style pizza! Italian food is the best food in the world and we want to spread the joy that it brings also to other places.", cuisine: "Italian")
 restaurant3.photos.attach(io: file3, filename: 'papapane.jpg', content_type: 'image/jpg')
 restaurant3.photos.attach(io: file7, filename: 'italian_logo.jpg', content_type: 'image/jpg')
@@ -119,8 +119,10 @@ puts "Creating meals..."
 # Meals Chef 1 / Restaurant 1
 
 photo1 = URI.open('https://storage.needpix.com/rsynced_images/tortelloni-2963581_1280.jpg')
-meal1 = Meal.create(name: "Agnolotti", difficulty: 3, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish")
+meal1 = Meal.create(name: "Agnolotti", difficulty: 3, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish", video: 'https://player.vimeo.com/video/371813808')
 meal1.photo.attach(io: photo1, filename: 'agnolotti.jpg', content_type: 'image/jpg')
+
+
 
 photo2 = URI.open('https://images.pexels.com/photos/1374586/pexels-photo-1374586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
 meal2 = Meal.create(name: "Flatbread", difficulty: 2, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter")

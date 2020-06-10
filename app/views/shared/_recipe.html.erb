@@ -1,9 +1,7 @@
 <div class="container justify-self-center">
   <div class="position d-flex justify-content-center">
-      <%= image_tag @meal.photo, alt: "Recipe Video Explanation" %>
-      <button class="btn"><strong>></strong></button>
-  </div>
-
+    <iframe src=<%= @meal.video %> width="800" height="600" frameBorder="0"></iframe>
+</div>
   <div class="recipe">
     <h1><%= @meal.name %></h1>
     <% steps = @recipe.steps.sort_by { |s| s["name"] } %>
