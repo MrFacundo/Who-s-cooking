@@ -122,8 +122,8 @@ photo1 = URI.open('https://storage.needpix.com/rsynced_images/tortelloni-2963581
 meal1 = Meal.create(name: "Agnolotti", difficulty: 3, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish")
 meal1.photo.attach(io: photo1, filename: 'agnolotti.jpg', content_type: 'image/jpg')
 
-photo2 = URI.open('https://images.pexels.com/photos/1374586/pexels-photo-1374586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal2 = Meal.create(name: "Flatbread", difficulty: 2, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter")
+photo2 = URI.open('https://images.unsplash.com/photo-1574448857443-dc1d7e9c4dad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80')
+meal2 = Meal.create(name: "Garlic Herb Flatbread", difficulty: 2, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter")
 meal2.photo.attach(io: photo2, filename: 'flatbread.jpg', content_type: 'image/jpg')
 
 photo7 = URI.open('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
@@ -215,25 +215,49 @@ user.save!
 ### Steps
 puts "Creating steps..."
 
-S1photo = URI.open('https://images.pexels.com/photos/9510/food-pizza-kitchen-recipe.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
-S1 = Step.create(name: "Step 1: for the Pasta Dough", content: "Combine flour, semolina, and salt in a small bowl.
+#Agnolotti steps
+
+Sa1photo = URI.open('https://images.pexels.com/photos/9510/food-pizza-kitchen-recipe.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+Sa1 = Step.create(name: "Step 1: for the Pasta Dough", content: "Combine flour, semolina, and salt in a small bowl.
     In a small bowl add the eggs and olive oil; whisk until combined.
     Pour the egg mixture into the well and grab a good ol’ fork.  Slowly incorporate the flour until the mixture is combined and start working with your hands.
     Slowly work until it forms a dough. Knead the dough until the dough feels similar to  play-doh.",
     meal: Meal.find_by(name: "Agnolotti"))
-S1.photo.attach(io: S1photo, filename: 's1.jpg', content_type: 'image/jpg')
+Sa1.photo.attach(io: Sa1photo, filename: 'sa1.jpg', content_type: 'image/jpg')
 
-
-S2 = Step.create(name: "Step 2: for the Filling", content: "Place peeled and diced potatoes in a medium pot and fill with water until potatoes are just covered.
+Sa2photo = URI.open('https://images.unsplash.com/photo-1558596401-6a1f12167068?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+Sa2 = Step.create(name: "Step 2: for the Filling", content: "Place peeled and diced potatoes in a medium pot and fill with water until potatoes are just covered.
     Put on medium high heat and allow water to boil. Boil potatoes until a fork can poke through.
     Drain potatoes and mash until smooth. Add goat cheese, parmesan, milk, chives and  salt. Mix until well incorporated.",
     meal: Meal.find_by(name: "Agnolotti"))
+Sa2.photo.attach(io: Sa2photo, filename: 'sa1.jpg', content_type: 'image/jpg')
 
-S3photo = URI.open('https://images.unsplash.com/photo-1521732670659-b8c918da61dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
-S3 = Step.create(name: "Step 3: Making Agnolotti", content: "With your piping bag, pipe a long line of the potato filling along the bottom of the sheet leaving about 1/4 inch of space from the very bottom.
+
+Sa3photo = URI.open('https://images.unsplash.com/photo-1521732670659-b8c918da61dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+Sa3 = Step.create(name: "Step 3: Making Agnolotti", content: "With your piping bag, pipe a long line of the potato filling along the bottom of the sheet leaving about 1/4 inch of space from the very bottom.
     Brush a small amount of egg wash above the piped potato on the pasta sheet.  Gently grab the quarter inch of space on the bottom and  fold over piped potato and roll one time.
     The egg wash will help seal the pasta and the piped potato should be wrapped in the thin pasta. ",
     meal: Meal.find_by(name: "Agnolotti"))
-S3.photo.attach(io: S3photo, filename: 's3.jpg', content_type: 'image/jpg')
+Sa3.photo.attach(io: Sa3photo, filename: 'sa3.jpg', content_type: 'image/jpg')
+
+
+#Flatbread steps
+
+Sb1photo = URI.open('https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+Sb1 = Step.create(name: "Step 1: making the Bread Dough", content: "To a large mixing bowl, add yeast, garlic, herbs, sea salt, organic cane sugar, all-purpose flour, and spelt flour and whisk.
+    Make a well in the dry ingredients and add olive oil and two-thirds of the warm water to start (1/2 cup or 120 ml as original recipe is written // adjust if altering batch size). Stir with a wooden spoon to mix. Add more water as needed until a dough forms.
+    Transfer to a clean, well-floured surface and knead until smooth and elastic – about 2 minutes – adding more flour as needed to prevent sticking.
+    Wipe out mixing bowl and add a bit of oil (1 tsp as original recipe is written // adjust if altering batch size). Roll dough around to coat and position seam-side down in the bowl. Cover with a damp towel or plastic wrap. Set in a warm place to rise for 1 hour.",
+    meal: Meal.find_by(name: "Garlic Herb Flatbread"))
+Sb1.photo.attach(io: Sb1photo, filename: 'sb1.jpg', content_type: 'image/jpg')
+
+Sb2photo = URI.open('https://live.staticflickr.com/2780/5753897290_cd30d129be_k.jpg%22')
+Sb2 = Step.create(name: "Step 2: Cooking", content: "In the meantime, heat a large skillet (electric or cast iron) to medium-high heat (~375 degrees F/ 190 C).
+One at a time on a lightly floured surface, roll each piece of dough into a large circle that’s fairly thin (not paper thin, but less than 1/8th inch thick – see photo).
+Lightly grease preheated skillet and lay down flatbread. Don’t touch, cook for 2 1/2 minutes. Flip and cook for 2 1/2 minutes on the other side. Repeat, adding more oil to coat surface, until all flatbread is cooked.
+Enjoy immediately, or let cool completely and store in a well-sealed bag or container up to 3 days (though best when fresh).",
+    meal: Meal.find_by(name: "Garlic Herb Flatbread"))
+Sb2.photo.attach(io: Sb2photo, filename: 'sb1.jpg', content_type: 'image/jpg')
+
 
 puts "Finished!"
