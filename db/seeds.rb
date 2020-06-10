@@ -206,11 +206,15 @@ user.save!
 
 ### Steps
 
- Step.create(name: "Step 1: for the Pasta Dough", content: "Combine flour, semolina, and salt in a small bowl.
+S1photo = URI.open('https://images.pexels.com/photos/9510/food-pizza-kitchen-recipe.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
+S1 = Step.create(name: "Step 1: for the Pasta Dough", content: "Combine flour, semolina, and salt in a small bowl.
     In a small bowl add the eggs and olive oil; whisk until combined.
     Pour the egg mixture into the well and grab a good ol’ fork.  Slowly incorporate the flour until the mixture is combined and start working with your hands.
     Slowly work until it forms a dough. Knead the dough until the dough feels similar to  play-doh.",
     meal: Meal.find_by(name: "Agnolotti"))
+S1.photo.attach(io: S1photo, filename: 's1.jpg', content_type: 'image/jpg')
+
+
 
  Step.create(name: "Step 2: for the Filling", content: "Place peeled and diced potatoes in a medium pot and fill with water until potatoes are just covered.
     Put on medium high heat and allow water to boil. Boil potatoes until a fork can poke through.

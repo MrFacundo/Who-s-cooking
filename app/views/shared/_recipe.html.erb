@@ -5,22 +5,20 @@
   </div>
 
   <div class="recipe">
-    <h1>Your Recipe!</h1>
+    <h1><%= @meal.name %></h1>
     <% steps = @recipe.steps.sort_by { |s| s["name"] } %>
     <% steps.each do |s| %>
-      <div class="details">
-          <div class="description">
-          <div class="card-meta">
-          <% if s.photo.attached? %>
-            <%= cl_image_tag meal.photo.key %>
-          <% else %>
-            <div class="image">  <%= image_tag "meal_placeholder.jpg"%></div>
-          <% end %>
-        </div>
-            <h2><%= s.name %></h2>
-            <p><%= s.content %></p>
+        <div class="recipe-step">
+          <h2><%= s.name %></h2>
+          <p><%= s.content %></p>
+          <div class="recipe-image">
+            <% if s.photo.attached? %>
+              <%= cl_image_tag meal.photo.key %>
+            <% else %>
+              <%= image_tag "meal_placeholder.jpg" %>
+            <% end %>
           </div>
-      </div>
+        </div>
     <% end %>
   </div>
 </div>
