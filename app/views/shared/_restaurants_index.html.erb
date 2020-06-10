@@ -6,7 +6,7 @@
       <%= image_tag "restaurant.jpg" %>
     <% end %>
     <div class="card-footer">
-      <h3><%= link_to restaurant.name.upcase, restaurant_path(restaurant) %></h3>
+      <h3><%= link_to restaurant.name.upcase, restaurant_path(restaurant), class: "stretched-link" %></h3>
       <% if restaurant.chefs.present? %>
         <p><strong>Chef <%= restaurant.chefs[0].first_name %> <%= restaurant.chefs[0].last_name %> </strong></p>
       <% end %>
