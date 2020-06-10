@@ -7,6 +7,7 @@
   font-size: 28px;
   font-weight: lighter;
   text-decoration: none;
+  padding: 20px 100px;
   &:hover {
     text-decoration: none;
   }
@@ -15,7 +16,7 @@
 .selected {
   font-weight: bold;
   color: black;
-  text-decoration: underline;
+  border-bottom: 3px solid $gray;
 }
 
 .cuisine-scroll {

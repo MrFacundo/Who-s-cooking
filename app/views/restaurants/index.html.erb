@@ -15,11 +15,13 @@
     <%= link_to "MEAL KITS", restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine]), class: params[:query] == "Meals"? "main-button selected" : "main-button", remote: true %>
   </div>
 
-  <div class="cuisine-scroll mt-5">
+  <div class="mt-5">
     <%= simple_form_for "" , url: restaurants_path, method: :get do |f| %>
       <%= f.input :city, as: :hidden, input_html: { value: params[:city]} %>
       <%= f.input :query, as: :hidden, input_html: { value: params[:query]} %>
-      <%= f.input :cuisine, as: :check_boxes, label: false, collection: Restaurant::CUISINE, wrapper: :vertical_collection_inline, input_html: { :checked => false, value: params[:cuisine] } %>
+      <div class="cuisine-scroll">
+        <%= f.input :cuisine, as: :check_boxes, legend_tag: false, collection: Restaurant::CUISINE, wrapper: :vertical_collection_inline, input_html: { :checked => false, value: params[:cuisine] } %>
+      </div>
       <%= f.button :submit, "Search!", class: "btn-info" %>
     <% end %>
   </div>
