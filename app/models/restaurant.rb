@@ -8,7 +8,7 @@ class Restaurant < ApplicationRecord
   has_many :chefs, through: :meals
   has_many :meal_categories, through: :meals
   has_many :categories, through: :meal_categories
-  has_one_attached :photo
+  has_many_attached :photos
 
   validates :city, presence: true, inclusion: { in: CITY }
   validates :cuisine, presence: true, inclusion: { in: CUISINE }
