@@ -119,11 +119,11 @@ puts "Creating meals..."
 # Meals Chef 1 / Restaurant 1
 
 photo1 = URI.open('https://storage.needpix.com/rsynced_images/tortelloni-2963581_1280.jpg')
-meal1 = Meal.create(name: "Agnolotti", difficulty: 3, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish", video: 'https://player.vimeo.com/video/371813808')
+meal1 = Meal.create(name: "Agnolotti", difficulty: 3, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish", video: 'https://player.vimeo.com/video/216445734')
 meal1.photo.attach(io: photo1, filename: 'agnolotti.jpg', content_type: 'image/jpg')
 
 photo2 = URI.open('https://images.unsplash.com/photo-1574448857443-dc1d7e9c4dad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80')
-meal2 = Meal.create(name: "Garlic Herb Flatbread", difficulty: 2, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter")
+meal2 = Meal.create(name: "Garlic Herb Flatbread", difficulty: 2, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter", video: 'https://player.vimeo.com/video/371813808')
 meal2.photo.attach(io: photo2, filename: 'flatbread.jpg', content_type: 'image/jpg')
 
 photo7 = URI.open('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
