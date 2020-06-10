@@ -27,7 +27,7 @@
     <div class="form mt-3">
       <%= simple_form_for [ @order ] do |f| %>
         <div class= "form-group">
-          <%= f.input :delivery_time, class: "form-control" %>
+          <%= f.input :delivery_time, as: :select, class: "form-control" %>
           <%= f.input :delivery_address, class: "form-control" %>
           <%= f.submit "Submit Order", class: "form-control btn btn-info" %>
         </div>
