@@ -13,9 +13,7 @@
           <p><%= s.content %></p>
           <div class="recipe-image">
             <% if s.photo.attached? %>
-              <%= cl_image_tag meal.photo.key %>
-            <% else %>
-              <%= image_tag "meal_placeholder.jpg" %>
+              <%= cl_image_tag s.photo.key %>
             <% end %>
           </div>
         </div>

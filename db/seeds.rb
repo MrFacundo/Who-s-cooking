@@ -205,6 +205,7 @@ user.password_confirmation = '123456'
 user.save!
 
 ### Steps
+puts "Creating steps..."
 
 S1photo = URI.open('https://images.pexels.com/photos/9510/food-pizza-kitchen-recipe.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
 S1 = Step.create(name: "Step 1: for the Pasta Dough", content: "Combine flour, semolina, and salt in a small bowl.
@@ -215,15 +216,16 @@ S1 = Step.create(name: "Step 1: for the Pasta Dough", content: "Combine flour, s
 S1.photo.attach(io: S1photo, filename: 's1.jpg', content_type: 'image/jpg')
 
 
-
- Step.create(name: "Step 2: for the Filling", content: "Place peeled and diced potatoes in a medium pot and fill with water until potatoes are just covered.
+S2 = Step.create(name: "Step 2: for the Filling", content: "Place peeled and diced potatoes in a medium pot and fill with water until potatoes are just covered.
     Put on medium high heat and allow water to boil. Boil potatoes until a fork can poke through.
     Drain potatoes and mash until smooth. Add goat cheese, parmesan, milk, chives and  salt. Mix until well incorporated.",
     meal: Meal.find_by(name: "Agnolotti"))
 
- Step.create(name: "Step 3: Making Agnolotti", content: "With your piping bag, pipe a long line of the potato filling along the bottom of the sheet leaving about 1/4 inch of space from the very bottom.
+S3photo = URI.open('https://images.unsplash.com/photo-1521732670659-b8c918da61dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+S3 = Step.create(name: "Step 3: Making Agnolotti", content: "With your piping bag, pipe a long line of the potato filling along the bottom of the sheet leaving about 1/4 inch of space from the very bottom.
     Brush a small amount of egg wash above the piped potato on the pasta sheet.  Gently grab the quarter inch of space on the bottom and  fold over piped potato and roll one time.
     The egg wash will help seal the pasta and the piped potato should be wrapped in the thin pasta. ",
     meal: Meal.find_by(name: "Agnolotti"))
+S3.photo.attach(io: S3photo, filename: 's3.jpg', content_type: 'image/jpg')
 
 puts "Finished!"
