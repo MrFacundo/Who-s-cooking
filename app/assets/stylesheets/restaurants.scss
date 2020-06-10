@@ -3,13 +3,18 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .main-button {
-  color: black;
+  color: $gray;
   font-size: 28px;
+  font-weight: lighter;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .selected {
   font-weight: bold;
-  color: greenyellow;
+  color: black;
   text-decoration: underline;
 }
 

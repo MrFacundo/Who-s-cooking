@@ -11,8 +11,8 @@
 <div class="container pt-5">
 
   <div class="container d-flex flex-row justify-content-around">
-      <%= link_to "RESTAURANTS", restaurants_path(query: "Restaurants", city: params[:city]), class: params[:query] == "Restaurants"? "main-button selected" : "main-button", remote: true %>
-      <%= link_to "MEAL KITS", restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine]), class: params[:query] == "Meals"? "main-button selected" : "main-button", remote: true %>
+    <%= link_to "RESTAURANTS", restaurants_path(query: "Restaurants", city: params[:city]), class: params[:query] == "Restaurants"? "main-button selected" : "main-button", remote: true %>
+    <%= link_to "MEAL KITS", restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine]), class: params[:query] == "Meals"? "main-button selected" : "main-button", remote: true %>
   </div>
 
   <div class="cuisine-scroll mt-5">
