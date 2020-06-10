@@ -1,6 +1,6 @@
 <div class="container">
   <% meals.each do |meal| %>
-      <div class="card-details">
+      <div class="card-details" id="meal-<%= meal.id %>">
         <div class="card-meta">
           <% if meal.photo.attached? %>
             <%= cl_image_tag meal.photo.key %>
@@ -21,7 +21,7 @@
           </div>
           <h4><%= meal.restaurant.name %></h4>
           <h1><%=meal.name %> with <%= meal.chef.first_name %></h1>
-          <p><%= meal.description %></p>         
+          <p><%= meal.description %></p>
           <h1><i><%=meal.price %> €</i></h1>
           <p><i class="far fa-clock"></i> <%= meal.prep_time %> min.</p>
           <div>
