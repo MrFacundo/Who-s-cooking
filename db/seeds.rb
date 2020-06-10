@@ -31,20 +31,28 @@ require "open-uri"
 
 ### City 1
 file1 = URI.open('https://images.unsplash.com/photo-1564758866811-4780aa0a1f49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
+file5 = URI.open('https://image.flaticon.com/icons/png/512/123/123954.png')
 restaurant1 = Restaurant.create(name: "Frea", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Spare, modern restaurant serving plant-based, organic fare prepared with zero-waste practices. We realized that making good food is not enough for our customers and we wanted to take an active role in saving the planet.", cuisine: "Fusion")
-restaurant1.photo.attach(io: file1, filename: 'frea.jpg', content_type: 'image/jpg')
+restaurant1.photos.attach(io: file1, filename: 'frea.jpg', content_type: 'image/jpg')
+restaurant1.photos.attach(io: file5, filename: 'vegan.jpg', content_type: 'image/jpg')
 
 file2 = URI.open('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
+file6 = URI.open('https://image.freepik.com/free-vector/luxurious-thai-pattern-with-golden-style_23-2147897288.jpg')
 restaurant2 = Restaurant.create(name: "Lemongrass", address: "Simon-Dach-Straße 2, 10245 Berlin", city: "Berlin", description: "One of the best Thai places in the city with an authentic Pad-Thai recipe. Our recipes were created with a lot of care and attention by our amazing chef who has dedicated his life to exploring the best food in the world.", cuisine: "Thai")
-restaurant2.photo.attach(io: file2, filename: 'lemongrass.jpg', content_type: 'image/jpg')
+restaurant2.photos.attach(io: file2, filename: 'lemongrass.jpg', content_type: 'image/jpg')
+restaurant2.photos.attach(io: file6, filename: 'thai_pattern.jpg', content_type: 'image/jpg')
 
 file3 = URI.open('https://images.pexels.com/photos/9315/menu-restaurant-france-eating-9315.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+file7 = URI.open('https://image.freepik.com/free-vector/restaurant-chef-character_23-2147518935.jpg')
 restaurant3 = Restaurant.create(name: "Papa Pane", address: "Ackerstraße 23, 10115 Berlin", city: "Berlin", description: "Authentic Italian food in the heart of Berlin! The best Napoli style pizza! Italian food is the best food in the world and we want to spread the joy that it brings also to other places.", cuisine: "Italian")
-restaurant3.photo.attach(io: file3, filename: 'papapane.jpg', content_type: 'image/jpg')
+restaurant3.photos.attach(io: file3, filename: 'papapane.jpg', content_type: 'image/jpg')
+restaurant3.photos.attach(io: file7, filename: 'italian_logo.jpg', content_type: 'image/jpg')
 
 file4 = URI.open('https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80')
+file8 = URI.open('https://image.freepik.com/free-vector/white-abstract-background-paper-style_23-2148389998.jpg')
 restaurant4 = Restaurant.create(name: "Schneeweiß", address: "Simplonstraße 16, 10245 Berlin", city: "Berlin", description: "Stylish restaurant serving Alpine cuisine in the trendy neighbourhood of Friedrichshain. You don't need to travel to Austria to be able to eat one of the best schnitzel in the world.", cuisine: "Alpine")
-restaurant4.photo.attach(io: file4, filename: 'schneeweiss.jpg', content_type: 'image/jpg')
+restaurant4.photos.attach(io: file4, filename: 'schneeweiss.jpg', content_type: 'image/jpg')
+restaurant4.photos.attach(io: file8, filename: 'snow_logo.jpg', content_type: 'image/jpg')
 
 # ### City 2
 

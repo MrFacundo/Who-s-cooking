@@ -1,7 +1,7 @@
 <% @restaurants.each do |restaurant| %>
   <div class="card mb-3 mt-3">
-    <% if restaurant.photo.attached? %>
-      <%= cl_image_tag restaurant.photo.key %>
+    <% if restaurant.photos.attached? %>
+      <%= cl_image_tag restaurant.photos[0].key %>
     <% else %>
       <%= image_tag "restaurant.jpg" %>
     <% end %>
