@@ -41,12 +41,15 @@
     border-radius: 50%;
   }
   .description {
-    margin-top: 15%;
     width: 50%;
     text-align: center; 
     margin: auto auto;
-    h2 {
+    h1 {
       font-weight: bold;
+      margin-bottom: 20px;
+    }
+    p {
+      text-align: left;
     }
   }
 }

@@ -27,10 +27,13 @@ $(document).ready(function(){
 });
 
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initInput } from '../components/card.js'; 
+
 
 document.addEventListener('turbolinks:load', () => {
     // Call your functions here, e.g:
     // initSelect2();
     initAutocomplete();
+    initInput();
 });
 
