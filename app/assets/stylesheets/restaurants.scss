@@ -25,6 +25,10 @@
   white-space: nowrap;
 }
 
+._price, ._preptime {
+  margin-bottom: 0 !important;
+}
+
 .restaurant {
   display: flex;
   justify-content: space-around;

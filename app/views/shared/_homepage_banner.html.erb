@@ -4,7 +4,7 @@
     <p>Convenient, inspiring and fun!</p>
 
     <div class="">
-      <%= simple_form_for "" , url: restaurants_path(query: "Restaurants"), wrapper: :inline_form, html: { class: "form-inline" }, method: :get do |f| %>
+      <%= simple_form_for "" , url: restaurants_path, wrapper: :inline_form, html: { class: "form-inline" }, method: :get do |f| %>
           <%= f.input :city, prompt: "Select your city!", label: false, collection: Restaurant::CITY %>
           <%= f.button :submit, "Search!", class: "btn btn-info ml-1" %>
       <% end %>
