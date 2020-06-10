@@ -33,8 +33,8 @@
           </div>
           <div class="add">
             <%= simple_form_for([ meal, order_item ]) do |f| %>
-              <div class= "form-group d-flex text-center">
-                <%= f.input :quantity, input_html: {value: f.object.quantity || '4'}, class: "form-control input" %>
+              <div class= "form-group d-flex text-center event-input">
+                <%= f.input :quantity, input_html: {value: f.object.quantity || '4'}, class: "form-control" %>
                 <%= f.submit "+", class: "btn btn-info submit" %>
               </div>
             <% end %>
