@@ -17,6 +17,17 @@
       </div>
       <div class="restaurant-description">
         <h1>Welcome to <%= @restaurant.name %>!</h1>
+        <% if @restaurant.average_review %>
+          <p>
+            <% @restaurant.average_review.times do %>
+              <i class="fas fa-star" style="font-size: 10px;"></i>
+            <% end %>
+            <% (5-@restaurant.average_review).times do %>
+              <i class="far fa-star" style="font-size: 10px;"></i>
+            <% end %>
+            (<%= pluralize @restaurant.reviews.size, "Review" %>)
+          </p>
+        <% end %>
         <p><%= @restaurant.description %></p>
     </div>
   </div>
