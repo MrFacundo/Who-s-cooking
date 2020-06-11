@@ -1,5 +1,5 @@
 meta_product_name: "SecretChef"
-meta_title: "Secretchef - Meal Kits to cook at home with professional tutorials by the best chefs in your city!"
-meta_description: "The best restaurants in your city are sharing their secrets with you. Simply choose your favourite restaurant and the meals you want to learn and enjoy a very special cooking experience. The restaurant packs a beautiful meal kit with the best ingredients and shares a professional tutorial by the restaurant's chef with you to teach you the basics of cooking and the recipes step by step. Enjoy a cooking experience that is 100% fun, hassle-free and entertaining!"
+meta_title: "Secretchef - Meal Kits with professional tutorials by the best chefs in your city!"
+meta_description: "Selected restaurants in your city are sharing their secrets with you. Simply choose your restaurant and the meals you want to learn and enjoy a unqiue cooking experience. You receive all ingredients in a kit, together with a professional tutorial by the restaurant's chef!"
 meta_image: "meal_placeholder.jpg" # should exist in `app/assets/images/`
 twitter_account: "@secretchef"   # required for Twitter Cards
