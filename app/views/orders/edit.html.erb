@@ -9,16 +9,17 @@
       <div class="col-9">
 
         <% @order.order_items.each do |oi| %>
-         <%= simple_form_for oi do |f| %>
-            <div class="order-form">
-              <p><%= oi.meal.name %></p>
-              <%= f.input :quantity, label: false, class: "form-control" %>
-              <p>€<%= oi.meal.price * oi.quantity %></p>
-
-              <%= f.submit "Update", class: "form-control"  %>
-              <%= button_to "Delete", order_item_path(oi), method: :delete, class: "form-control" %>
-            </div>
-         <% end %>
+          <div class="d-flex align-items-center justify-content-center">
+              <%= simple_form_for oi do |f| %>
+                <div class="order-form">
+                  <p><%= oi.meal.name %></p>
+                  <%= f.input :quantity, label: false, class: "form-control" %>
+                  <p>€<%= oi.meal.price * oi.quantity %></p>
+                  <%= f.submit "Update", class: "form-control"  %>
+                </div>
+              <% end %>
+            <%= button_to "Delete", order_item_path(oi), method: :delete, class: "form-control" %>
+          </div>
         <% end %>
       <div class="order-form-2" >
         <p><strong>Total price:</strong></p style='margin-top: 10px'>
