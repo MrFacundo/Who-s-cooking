@@ -40,5 +40,27 @@
 
     <%= render "shared/meals_show", meals: @restaurant.meals, order_item: @order_item %>
   </div>
+
+
+  <% unless @restaurant.reviews.empty? %>
+    <div class="container pt-5 ml-5">
+      <h2>Reviews</h2>
+       <p><% @restaurant.reviews.each do |r| %>
+          <div class="reviews">
+
+          <% r.rating.times do %>
+          <i class="fas fa-star" style="font-size: 10px;"></i>
+          <% end %></p>
+          <div class="review-body">
+            <p><%= r.content %></p>
+            <p><%= r.order.user.first_name %> · <%= r.created_at.strftime("%d/%m/%Y")  %></p>
+          </div>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
 </div>
+
+
+
 
