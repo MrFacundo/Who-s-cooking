@@ -15,18 +15,15 @@
         <p style="width: 250px;"><span class="border border-dark p-1"><%=restaurant.meals.size %></span> Meal Kits</p>
         <p style="width: 250px;"><em> <%= restaurant.cuisine %> cuisine </em></p>
         <% if restaurant.average_review %>
-
         <!-- Display if restaurant has reviews -->
-
-          <ul class="list-inline p-1" style="width: 250px;">
+          <p style="width: 250px;">
             <% restaurant.average_review.times do %>
-              <li class="list-inline-item"><i class="fas fa-star" style="font-size: 10px;"></i></li>
+              <i class="fas fa-star" style="font-size: 10px;"></i>
             <% end %>
             <% (5-restaurant.average_review).times do %>
-              <li class="list-inline-item"><i class="far fa-star" style="font-size: 10px;"></i></li>
+              <i class="far fa-star" style="font-size: 10px;"></i>
             <% end %>
-          </ul>
-
+          </p>
           <!-- If restaurant has no reviews display 0 reviews -->
         <% else %>
           <p style="width: 250px;"><%= pluralize restaurant.reviews.size, "Review" %></p>
