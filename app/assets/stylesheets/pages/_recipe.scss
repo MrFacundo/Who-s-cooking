@@ -41,14 +41,23 @@
   text-align: center;
 }
 
-.recipe img {
-  max-width:70%;
-  max-height:100%;
+.card-avatar-recipe {
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 30px;
+}
+
+
+.recipe-image {
+  max-width:680px;
+  max-height:auto;
   padding-bottom: 60px;
 }
 
 .recipe-step {
   padding-top: 20px;
   border-top: 1px solid #e6e6e6;
+  width: 800px;
+  display: inline-block;
 }
 
