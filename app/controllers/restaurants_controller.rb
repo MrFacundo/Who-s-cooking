@@ -55,6 +55,6 @@ class RestaurantsController < ApplicationController
   end
 
   def meal_cusine_search(query)
-    @meals = Meal.joins(:restaurant).where(restaurants: {cuisine: query})
+    @meals = @meals.joins(:restaurant).where(restaurants: {cuisine: query})
   end
 end
