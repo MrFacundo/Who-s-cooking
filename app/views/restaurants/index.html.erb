@@ -19,10 +19,21 @@
     <%= simple_form_for "" , url: restaurants_path, method: :get do |f| %>
       <%= f.input :city, as: :hidden, input_html: { value: params[:city]} %>
       <%= f.input :query, as: :hidden, input_html: { value: params[:query]} %>
-      <div class="cuisine-scroll">
-        <%= f.input :cuisine, as: :check_boxes, legend_tag: false, collection: Restaurant::CUISINE, wrapper: :vertical_collection_inline, input_html: { :checked => false, value: params[:cuisine] } %>
+
+      <input type="hidden" name="cuisine[]" value="">
+
+      <div class="cuisine-choices">
+        <% Restaurant::CUISINE.each do |category| %>
+            <input class="hidden" value="<%=category%>" type="checkbox" name="cuisine[]" id="cuisine_<%=category%>">
+            
+            <label class="cuisine-choice" for="cuisine_<%=category%>"> 
+              <%= category %> 
+            </label>
+        <% end %>
       </div>
+
       <%= f.button :submit, "Search!", class: "btn-info" %>
+
     <% end %>
   </div>
 
