@@ -15,26 +15,29 @@
     <%= link_to "MEAL KITS", restaurants_path(query: "Meals", city: params[:city], cuisine: params[:cuisine]), class: params[:query] == "Meals"? "main-button selected" : "main-button", remote: true %>
   </div>
 
-  <div class="mt-5">
-    <%= simple_form_for "" , url: restaurants_path, method: :get do |f| %>
-      <%= f.input :city, as: :hidden, input_html: { value: params[:city]} %>
-      <%= f.input :query, as: :hidden, input_html: { value: params[:query]} %>
+  <div class="d-flex align-items-center mt-5">
+    <div class="col-11">
+      <%= simple_form_for "" , url: restaurants_path, method: :get do |f| %>
+        <%= f.input :city, as: :hidden, input_html: { value: params[:city]} %>
+        <%= f.input :query, as: :hidden, input_html: { value: params[:query]} %>
 
-      <input type="hidden" name="cuisine[]" value="">
+        <input type="hidden" name="cuisine[]" value="">
 
-      <div class="cuisine-choices">
-        <% Restaurant::CUISINE.each do |category| %>
-            <input class="hidden" value="<%=category%>" type="checkbox" name="cuisine[]" id="cuisine_<%=category%>">
-            
-            <label class="cuisine-choice" for="cuisine_<%=category%>"> 
-              <%= category %> 
-            </label>
-        <% end %>
-      </div>
-
-      <%= f.button :submit, "Search!", class: "btn-info" %>
-
-    <% end %>
+        <div class="cuisine-choices">
+          <% Restaurant::CUISINE.each do |category| %>
+              <input class="hidden" value="<%=category%>" type="checkbox" name="cuisine[]" id="cuisine_<%=category%>">
+              
+              <label class="cuisine-choice" for="cuisine_<%=category%>"> 
+                <%= category %> 
+              </label>
+          <% end %>
+        </div>
+        <%= f.button :submit, "Search!", class: "btn-info" %>
+      <% end %>
+    </div>
+    <div class="col-1">
+      <i class="fas fa-arrow-right"></i>
+    </div>
   </div>
 
 

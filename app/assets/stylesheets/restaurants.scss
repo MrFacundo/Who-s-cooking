@@ -25,6 +25,10 @@
   white-space: nowrap;
 }
 
+.cuisine-choices::-webkit-scrollbar {
+  display: none;
+}
+
 .cuisine-choices .cuisine-choice {
   padding: 5px 20px;
   &.active {
