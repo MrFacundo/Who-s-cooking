@@ -5,6 +5,7 @@
 
     <div class="">
       <%= simple_form_for "" , url: restaurants_path, wrapper: :inline_form, html: { class: "form-inline" }, method: :get do |f| %>
+        <%= f.input :query, as: :hidden, input_html: { value: params[:query] = "Restaurants"} %>
           <%= f.input :city, prompt: "Select your city!", label: false, collection: Restaurant::CITY %>
           <%= f.button :submit, "Search!", class: "btn btn-info ml-1" %>
       <% end %>
