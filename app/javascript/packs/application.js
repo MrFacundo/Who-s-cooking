@@ -9,7 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import 'bootstrap';
-
+import "../plugins/flatpickr.js"
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -20,12 +20,12 @@ import 'bootstrap';
 
 import "controllers";
 import { initAutocomplete } from '../plugins/init_autocomplete';
-import { initInput } from '../components/card.js'; 
+import { initInput } from '../components/card.js';
 
 $(document).ready(function(){
   setTimeout(function(){
   $('.alert').fadeOut();
-  }, 4000);
+  }, 3000);
 });
 
 $(document).ready(function(){
@@ -33,7 +33,6 @@ $(document).ready(function(){
     $(this).toggleClass("active");
   });
 });
-
 
 
 document.addEventListener('turbolinks:load', () => {
