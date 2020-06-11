@@ -32,7 +32,7 @@ require "open-uri"
 ### City 1
 file1 = URI.open('https://images.unsplash.com/photo-1564758866811-4780aa0a1f49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
 file5 = URI.open('https://image.flaticon.com/icons/png/512/123/123954.png')
-restaurant1 = Restaurant.create(name: "Frea", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Spare, modern restaurant serving plant-based, organic fare prepared with zero-waste practices. We realized that making good food is not enough for our customers and we wanted to take an active role in saving the planet.", cuisine: "Fusion")
+restaurant1 = Restaurant.create(name: "Frea", address: "Torstraße 180, 10115 Berlin", city: "Berlin", description: "Spare, modern restaurant serving plant-based and vegetarian, organic food prepared with zero-waste practices. We realized that making good food is not enough for our customers and we wanted to take an active role in saving the planet.", cuisine: "Fusion")
 restaurant1.photos.attach(io: file1, filename: 'frea.jpg', content_type: 'image/jpg')
 restaurant1.photos.attach(io: file5, filename: 'vegan.jpg', content_type: 'image/jpg')
 
@@ -54,28 +54,7 @@ restaurant4 = Restaurant.create(name: "Schneeweiß", address: "Simplonstraße 16
 restaurant4.photos.attach(io: file4, filename: 'schneeweiss.jpg', content_type: 'image/jpg')
 restaurant4.photos.attach(io: file8, filename: 'snow_logo.jpg', content_type: 'image/jpg')
 
-# ### City 2
-
-# Restaurant.create(name: "Restaurant 3", address: "Street 4", city: "Hamburg", description: "awesome place with great food")
-
-# Restaurant.create(name: "Restaurant 4", address: "Street 4", city: "Hamburg", description: "awesome place with great food")
-
-
-# ### City 3
-
-# Restaurant.create(name: "Restaurant 5", address: "Street 4", city: "Stuttgart", description: "awesome place with great food")
-
-# Restaurant.create(name: "Restaurant 6", address: "Street 4", city: "Stuttgart", description: "awesome place with great food")
-
-
-# ### Restaurant City 4
-
-# Restaurant.create(name: "Restaurant 7", address: "Street 4", city: "Dortmund", description: "awesome place with great food")
-
-# Restaurant.create(name: "Restaurant 8", address: "Street 4", city: "Dortmund", description: "awesome
-# place with great food")
-
-
+### Chefs
 puts "Creating chefs..."
 
 # Chef 1
@@ -94,23 +73,9 @@ chef3 = Chef.create(first_name: "Laura", last_name: "Veronese", bio: "Berlin is 
 chef3.photo.attach(io: image3, filename: 'laura.jpg', content_type: 'image/jpg')
 # # Chef 4
 
-# Chef.create(first_name: "Werner", last_name: "Meyer", bio: "lived, worked and cooked somewhere else before")
-
-# # Chef 5
-
-# Chef.create(first_name: "Toni", last_name: "Tortelloni", bio: "lived, worked and cooked somewhere else before")
-
-# # Chef 6
-
-# Chef.create(first_name: "Marta", last_name: "Margarita", bio: "lived, worked and cooked somewhere else before")
-
-# # Chef 7
-
-# Chef.create(first_name: "Lisa", last_name: "Lasagna", bio: "lived, worked and cooked somewhere else before")
-
-# # Chef 8
-
-# Chef.create(first_name: "Tanja", last_name: "Spatula", bio: "lived, worked and cooked somewhere else before")
+image4 = URI.open('https://images.pexels.com/photos/2102934/pexels-photo-2102934.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+chef4 = Chef.create(first_name: "Thomas", last_name: "Keller", bio: "Thomas learned to cook the best Alpine food during his years as a sous chef in one of Austria's best restaurants.")
+chef4.photo.attach(io: image4, filename: 'thomas.jpg', content_type: 'image/jpg')
 
 
 #### Meals
@@ -126,91 +91,79 @@ photo2 = URI.open('https://images.unsplash.com/photo-1574448857443-dc1d7e9c4dad?
 meal2 = Meal.create(name: "Garlic Herb Flatbread", difficulty: 2, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter", video: 'https://player.vimeo.com/video/371813808')
 meal2.photo.attach(io: photo2, filename: 'flatbread.jpg', content_type: 'image/jpg')
 
-photo7 = URI.open('https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
-meal7 = Meal.create(name: "Quinoa with green beans", difficulty: 2, prep_time: 40, price: 21, description: "Tasty quino with green beans and cherry tomatoes.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish")
-meal7.photo.attach(io: photo7, filename: 'quinoa.jpg', content_type: 'image/jpg')
-
+photo7 = URI.open('https://images.pexels.com/photos/3026810/pexels-photo-3026810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+meal7 = Meal.create(name: "Vegan chocolate mousse", difficulty: 2, prep_time: 40, price: 18, description: "Tasty chocolate mousse with only vegan ingredients. Perfect dessert for a summer day.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Dessert")
+meal7.photo.attach(io: photo7, filename: 'mousse.jpg', content_type: 'image/jpg')
 
 # Meals Chef 2 / Restaurant 2
+
 photo3 = URI.open('https://images.unsplash.com/photo-1559314809-0d155014e29e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
-meal3 = Meal.create(name: "Pad Thai", difficulty: 3, prep_time: 100, price: 15, description: "Spicy Thai-style fried noodles with peanuts and soy sprouts.", restaurant: Restaurant.second, chef: Chef.second, menu_type: "Main Dish")
+meal3 = Meal.create(name: "Pad Thai", difficulty: 3, prep_time: 25, price: 15, description: "Spicy Thai-style fried noodles with peanuts and soy sprouts.", restaurant: Restaurant.second, chef: Chef.second, menu_type: "Main Dish")
 meal3.photo.attach(io: photo3, filename: 'padthai.jpg', content_type: 'image/jpg')
 
 photo4 = URI.open('https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal4 = Meal.create(name: "Tom Kha Kai", difficulty: 2, prep_time: 120, price: 13, description: "Thai chicken coconut soup with coriander.", restaurant: Restaurant.second, chef: Chef.second, menu_type: "Main Dish")
+meal4 = Meal.create(name: "Tom Kha Kai", difficulty: 2, prep_time: 40, price: 13, description: "Thai chicken coconut soup with coriander.", restaurant: Restaurant.second, chef: Chef.second, menu_type: "Main Dish")
 meal4.photo.attach(io: photo4, filename: 'soup.jpg', content_type: 'image/jpg')
+
 # Meals Chef 3 / Restaurant 3
 
 photo5 = URI.open('https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=940')
-meal5 = Meal.create(name: "Tagliatelle al salmone e basilico", difficulty: 2, prep_time: 90, price: 10, description: "Our homemade tagliatelle with fresh slamon from the coast of Denmark.", restaurant: Restaurant.third, chef: Chef.third, menu_type: "Main Dish")
+meal5 = Meal.create(name: "Tagliatelle al salmone e basilico", difficulty: 2, prep_time: 30, price: 10, description: "Our homemade tagliatelle with fresh slamon from the coast of Denmark.", restaurant: Restaurant.third, chef: Chef.third, menu_type: "Main Dish")
 meal5.photo.attach(io: photo5, filename: 'tagliatelle.jpg', content_type: 'image/jpg')
 
 photo6 = URI.open('https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal6 = Meal.create(name: "Penne all'arrabbiata", difficulty: 1, prep_time: 60, price: 10, description: "Delicious penne with sauce made from the best local tomatoes.", restaurant: Restaurant.third, chef: Chef.third, menu_type: "Main Dish")
+meal6 = Meal.create(name: "Penne all'arrabbiata", difficulty: 3, prep_time: 25, price: 10, description: "Delicious penne with sauce made from the best local tomatoes.", restaurant: Restaurant.third, chef: Chef.third, menu_type: "Main Dish")
 meal6.photo.attach(io: photo6, filename: 'penne.jpg', content_type: 'image/jpg')
-# # Meals Chef 4
 
-# Meal.create(name: "Pad Thai", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fourth, chef: Chef.all.fourth)
+# Meals Chef 4 / Restaurant 4
 
-# Meal.create(name: "Fabolous food", difficulty: 2, prep_time: 60, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fourth, chef: Chef.all.fourth)
-
-# # Meals Chef 5
-
-# Meal.create(name: "Yummy Tummy", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
-# Meal.create(name: "Yummy Tummy", difficulty: 4, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.all.fifth, chef: Chef.all.fifth)
-
-# # Meals Chef 6
-
-# Meal.create(name: "Very Good Cake", difficulty: 2, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
-
-
-# Meal.create(name: "Scrumptious Sate", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
-
-# Meal.create(name: "Delicious Dorrito", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
-
-# # Meals Chef 7
-
-# Meal.create(name: "Tomato à la Toni", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 7"), chef: Chef.find_by(first_name: "Lisa"))
-
-# Meal.create(name: "Delicious Dorrito", difficulty: 1, prep_time: 120, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 6"), chef: Chef.find_by(first_name: "Marta"))
-
-# # Meals Chef 7
-
-
-# Meal.create(name: "Adventorous Avocado", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 7"), chef: Chef.find_by(first_name: "Lisa"))
-
-# # Meals Chef 8
-
-# Meal.create(name: "Aspiring Asparagus", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
-
-# Meal.create(name: "Potential Potato", difficulty: 3, prep_time: 120, price: 10, description: "Really delicious and you should totally make this at home", restaurant: Restaurant.find_by(name: "Restaurant 8"), chef: Chef.find_by(first_name: "Tanja"))
+photo7 = URI.open('https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80')
+meal7 = Meal.create(name: "Wiener schnitzel", difficulty: 3, prep_time: 40, price: 22, description: "The best Wiener Schnitzel in Berlin!.", restaurant: Restaurant.fourth, chef: Chef.fourth, menu_type: "Main Dish")
+meal7.photo.attach(io: photo7, filename: 'schnitzel.jpg', content_type: 'image/jpg')
 
 
 #### Meal Categories
 puts "Creating meal categories..."
 
+# First meal
+MealCategory.create(meal: Meal.first, category: Category.first)
+MealCategory.create(meal: Meal.first, category: Category.second)
 
-20.times do
-  MealCategory.create(meal: Meal.all.sample, category_id: Category.all.sample.id)
-end
+# Second meal
+MealCategory.create(meal: Meal.second, category: Category.first)
+MealCategory.create(meal: Meal.second, category: Category.second)
 
-#### Reviews
-puts "Creating reviews..."
+# Third meal
+MealCategory.create(meal: Meal.third, category: Category.first)
+MealCategory.create(meal: Meal.third, category: Category.second)
 
-5.times do
-  Review.create(content: "Really liked it, great meal", rating: 5, order: Order.all.sample)
-end
+# Fourth meal
+MealCategory.create(meal: Meal.fourth, category: Category.fifth)
+MealCategory.create(meal: Meal.fourth, category: Category.last)
+
+# Fifth meal
+MealCategory.create(meal: Meal.find_by(name: "Tom Kha Kai"), category: Category.find_by(name: "Spicy"))
+MealCategory.create(meal: Meal.find_by(name: "Tom Kha Kai"), category: Category.find_by(name: "Vegetarian"))
+
+# Sixth meal
+MealCategory.create(meal: Meal.find_by(name: "Tagliatelle al salmone e basilico"), category: Category.find_by(name: "Fish"))
+
+# Seventh meal
+MealCategory.create(meal: Meal.find_by(name: "Penne all'arrabbiata"), category: Category.find_by(name: "Spicy"))
+MealCategory.create(meal: Meal.find_by(name: "Penne all'arrabbiata"), category: Category.find_by(name: "Vegetarian"))
+
+# Seventh meal
+MealCategory.create(meal: Meal.find_by(name: "Wiener schnitzel"), category: Category.find_by(name: "Egg"))
+
+
 
 ### User
-puts "Creating user..."
+puts "Creating users..."
 
-user = User.new
-user.first_name = "Test"
-user.last_name = "Test"
-user.email = 'test@example.com'
-user.password = '123456'
-user.password_confirmation = '123456'
-user.save!
+User.create(first_name: "Dana", last_name: "Gordas", email: "dana@gmail.com", password: "123456")
+User.create(first_name: "Facundo", last_name: "Troitero", email: "facundo@gmail.com", password: "123456")
+User.create(first_name: "Bea", last_name: "Kern", email: "bea@gmail.com", password: "123456")
+User.create(first_name: "Juliane", last_name: "Schremer", email: "juliane@gmail.com", password: "123456")
 
 ### Steps
 puts "Creating steps..."
