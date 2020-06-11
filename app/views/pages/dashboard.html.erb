@@ -41,8 +41,9 @@
               </div>
               <!-- Button for recipe -->
               <div class="add">
-                <button type="button" class="btn btn-info btn-recipes"><%= link_to "Start Cooking", recipe_path(meal)%> </button>
+                <button type="button" class="btn btn-info btn-recipes mb-4 "><%= link_to "Start Cooking", recipe_path(meal)%> </button>
               </div>
+              
               <!-- Chef avatar -->
               <div class="card-avatar">
                 <% if meal.chef.photo.attached? %>
