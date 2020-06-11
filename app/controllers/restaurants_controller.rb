@@ -29,12 +29,12 @@ class RestaurantsController < ApplicationController
       @meals = @meals.where("prep_time <= ?", params[:preptime])
     end
 
-    if params[:difficulty].present?
-      @meals = @meals.where("difficulty <= ? ", params[:difficulty])
+    if params[:difficulty].present? && params[:difficulty].length > 1
+      @meals = @meals.where("difficulty <= ? ", params[:difficulty].last)
     end
 
-    if params[:menu_type].present?
-      @meals = @meals.where("menu_type <= ?", params[:menu_type])
+    if params[:menu_type].present? && params[:menu_type].length > 1
+      @meals = @meals.where("menu_type <= ?", params[:menu_type].last)
     end
 
   end
