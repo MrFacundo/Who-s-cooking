@@ -15,8 +15,8 @@
               <%= f.input :quantity, label: false, class: "form-control" %>
               <p>€<%= oi.meal.price * oi.quantity %></p>
 
-              <%= f.submit "Update".html_safe, class: "form-control"  %>
-              <%= link_to "<i class='fas fa-times'></i>".html_safe, order_item_path(oi.id), method: :delete %>
+              <%= f.submit "Update", class: "form-control"  %>
+              <%= button_to "Delete", order_item_path(oi), method: :delete, class: "form-control" %>
             </div>
          <% end %>
         <% end %>
