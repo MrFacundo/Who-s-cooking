@@ -16,7 +16,7 @@
         <div class="cart">
           <% if @order %>
             <li class="nav-item">
-              <span class="counter badge badge-info"><%= @order_items_count %></span><%= link_to "<i class='fas fa-shopping-cart'></i>".html_safe,  edit_order_path(@order), style: "color: #333333; font-size: 25px;", class: "icon p-3" %>
+              <span class="counter badge badge-info"><%= @order_items_count %></span><%= link_to "<i class='fas fa-shopping-cart'></i>".html_safe,  edit_order_path(@order), style: "color: #333333; font-size: 25px;", class: "icon p-3", data: { turbolinks: false } %>
             </li>
           <% else %>
             <li class="nav-item">

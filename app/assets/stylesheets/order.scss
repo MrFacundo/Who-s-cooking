@@ -1,18 +1,15 @@
 .order-form {
-  display: grid;
-  grid-template-columns: 1fr 0.5fr 0.5fr min-content min-content;
-  width: 100%;
-  align-items: center;
-  grid-gap: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 
 .order-form-2 {
-  display: grid;
-  grid-template-columns: 0.5fr 0.3fr  0.5fr;
-  grid-gap: 20px;
-  border-top: 1px solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
   margin-top: 10px;
+  border-top: 1px solid #e6e6e6;
   margin-bottom: 10px;
 }
 
