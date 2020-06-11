@@ -19,10 +19,22 @@
   border-bottom: 3px solid #333333;
 }
 
-.cuisine-scroll {
+.cuisine-choices {
   overflow-y: hidden;
   overflow-x: scroll;
   white-space: nowrap;
+}
+
+.cuisine-choices .cuisine-choice {
+  padding: 5px 20px;
+  &.active {
+    border-bottom: 2px solid black;
+    font-weight: bolder;
+  }
+}
+
+.cuisine-choices .hidden {
+  display: none;
 }
 
 ._price, ._preptime {

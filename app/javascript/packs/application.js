@@ -28,6 +28,12 @@ $(document).ready(function(){
   }, 4000);
 });
 
+$(document).ready(function(){
+  $(".cuisine-choice").click(function(){
+    $(this).toggleClass("active");
+  });
+});
+
 
 
 document.addEventListener('turbolinks:load', () => {
