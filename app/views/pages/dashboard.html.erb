@@ -1,49 +1,65 @@
 <div class="container">
-  <div class="row justify-content-center mt-5"><h1>Your cooking experiences</h1></div>
-  <% @new_meals.each do |meal| %>
-    <div class="card-details" id="meal-<%= meal.id %>">
-      <div class="card-meta">
-        <% if meal.photo.attached? %>
-          <%= cl_image_tag meal.photo.key %>
-        <% else %>
-          <%= image_tag "meal_placeholder.jpg" %>
-        <% end %>
-      </div>
-      <div class="card-description">
-        <div class="difficulty-level">
-          <ul class="list-inline mt-0 d-flex">
-            <p class="list-inline mt-0 mr-2">Difficulty Level</p>
-            <div class="difficulty">
-              <% meal.difficulty.times do %>
-                <%= image_tag "hat.svg" %>
+  <div class="row justify-content-center mt-7">
+    <h1 class="mb-3 mt-3">Your cooking experiences</h1>
+      <div class="col-10">
+        <!-- Outline of card  -->
+        <% @new_meals.each do |meal| %>
+          <div class="card-details" id="meal-<%= meal.id %>">
+            <!-- Card picture -->
+            <div class="card-meta">
+              <% if meal.photo.attached? %>
+                <%= cl_image_tag meal.photo.key %>
+              <% else %>
+                <%= image_tag "meal_placeholder.jpg" %>
               <% end %>
             </div>
-          </ul>
-        </div>
-        <h4><%= meal.restaurant.name %></h4>
-        <h1><%=meal.name %> with <%= meal.chef.first_name %></h1>
-        <p><%= meal.description %></p>
-        <h1><i><%=meal.price %> €</i></h1>
-        <p><i class="far fa-clock"></i> <%= meal.prep_time %> min.</p>
-        <div>
-          <ul class="list-inline mb-3">
-            <% meal.categories.all.each do |c| %>
-              <p class="btn btn-outline-secondary category btn-sm disabled"><%= c.name %></p>
-            <% end %>
-          </ul>
-        </div>
-        <div class="add">
-          <div class="row justify-content-center"><button type="button" class="btn btn-info btn-recipes"><%= link_to "Start Cooking", recipe_path(meal)%> </button></div>
-        </div>
-        <div class="card-avatar">
-          <% if meal.chef.photo.attached? %>
-            <%= cl_image_tag meal.chef.photo.key, class: "avatar-large mr-3", alt: "Meet your chef!" %>
-          <% else %>
-            <%= image_tag "chef1.jpg", class: "avatar-large mr-3", alt: "Meet your chef!" %>
-          <% end %>
-        </div>
+            <!-- End card picture -->
+
+            <!--  Card description -->
+            <div class="card-description">
+              <div class="difficulty-level">
+                <ul class="list-inline mt-0 d-flex">
+                  <p class="list-inline mt-0 mr-2">Difficulty Level</p>
+                  <div class="difficulty">
+                    <% meal.difficulty.times do %>
+                      <%= image_tag "hat.svg" %>
+                    <% end %>
+                  </div>
+                </ul>
+              </div>
+              <h4><%= meal.restaurant.name %></h4>
+              <h1><%=meal.name %> with <%= meal.chef.first_name %></h1>
+              <p><%= meal.description %></p>
+              <h1><i><%=meal.price %> €</i></h1>
+              <p><i class="far fa-clock"></i> <%= meal.prep_time %> min.</p>
+              <div>
+                <ul class="list-inline mb-3">
+                  <% meal.categories.all.each do |c| %>
+                    <p class="btn btn-outline-secondary category btn-sm disabled"><%= c.name %></p>
+                  <% end %>
+                </ul>
+              </div>
+              <!-- Button for recipe -->
+              <div class="add">
+                <button type="button" class="btn btn-info btn-recipes"><%= link_to "Start Cooking", recipe_path(meal)%> </button>
+              </div>
+              <!-- Chef avatar -->
+              <div class="card-avatar">
+                <% if meal.chef.photo.attached? %>
+                  <%= cl_image_tag meal.chef.photo.key, class: "avatar-large mr-3", alt: "Meet your chef!" %>
+                <% else %>
+                  <%= image_tag "chef1.jpg", class: "avatar-large mr-3", alt: "Meet your chef!" %>
+                <% end %>
+              </div>
+            </div>
+            <!-- End card description -->
+          </div>
+        <% end %>
+        <!-- End of outline of card -->
+
       </div>
-    </div>
-  <% end %>
+
+  </div>
+
 </div>
 
