@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
   CITY = ['Berlin', 'Hamburg', 'Stuttgart', 'Dortmund']
-  CUISINE = ['Asian', 'Austrian', 'Chinese', 'Filipino', 'French', 'German', 'Greek', 'Indian', 'Indonesian', 'Italian', 'Japanese', 'Korean', 'Lebanese', 'Mexican', 'Moroccan', 'Peruvian', 'Russian', 'Swedish', 'Swiss', 'Thai', 'Turkish', 'Vietnamese', 'Fusion', 'German', 'Alpine']
+  CUISINE = ['Alpine', 'Asian', 'Austrian', 'Chinese', 'French', 'Fusion', 'German', 'Greek', 'Indian', 'Italian', 'Japanese', 'Korean', 'Lebanese', 'Mexican', 'Moroccan', 'Peruvian', 'Russian', 'Swedish', 'Thai', 'Turkish', 'Vietnamese']
 
   has_many :orders, dependent: :destroy
   has_many :reviews, through: :orders

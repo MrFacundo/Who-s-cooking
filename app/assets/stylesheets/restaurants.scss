@@ -19,10 +19,33 @@
   border-bottom: 3px solid #333333;
 }
 
-.cuisine-choices {
-  overflow-y: hidden;
-  overflow-x: scroll;
-  white-space: nowrap;
+.carousel {
+  overflow: hidden;
+}
+.carousel-inner {
+  overflow: inherit;
+  padding: 0 40px;
+}
+.carousel-control-prev {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 0;
+  color: black !important;
+  background-image: none;
+}
+.carousel-control-next {
+  color: black !important;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 0;
+  background-image: none;
+}
+
+.carousel-item.active {
+  display: flex;
+  justify-content: space-between;
 }
 
 .cuisine-choices::-webkit-scrollbar {
