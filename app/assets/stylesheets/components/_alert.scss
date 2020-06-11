@@ -4,16 +4,17 @@
   right: 80px;
   z-index: 1000;
   border-radius: 5px;
+  border: none;
 }
 
 .alert-info {
   background-color: $green;
-  border-color: $dark-green;
-  color: $dark-green;
+  color: $white;
+  opacity: 0.9;
 }
 
 .alert-warning {
   background-color: $light-orange;
-  border-color: $orange;
-  color: $orange;
+  color: $white;
+  opacity: 0.9;
 }
