@@ -102,7 +102,7 @@ meal3 = Meal.create(name: "Pad Thai", difficulty: 3, prep_time: 25, price: 15, d
 meal3.photo.attach(io: photo3, filename: 'padthai.jpg', content_type: 'image/jpg')
 
 photo4 = URI.open('https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal4 = Meal.create(name: "Tom Kha Kai", difficulty: 2, prep_time: 40, price: 13, description: "Thai chicken coconut soup with coriander.", restaurant: Restaurant.second, chef: Chef.second, menu_type: "Main Dish")
+meal4 = Meal.create(name: "Tom Kha Kai", difficulty: 2, prep_time: 40, price: 13, description: "Thai coconut soup with coriander.", restaurant: Restaurant.second, chef: Chef.second, menu_type: "Main Dish")
 meal4.photo.attach(io: photo4, filename: 'soup.jpg', content_type: 'image/jpg')
 
 # Meals Chef 3 / Restaurant 3
@@ -118,7 +118,7 @@ meal6.photo.attach(io: photo6, filename: 'penne.jpg', content_type: 'image/jpg')
 # Meals Chef 4 / Restaurant 4
 
 photo7 = URI.open('https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80')
-meal7 = Meal.create(name: "Wiener schnitzel", difficulty: 3, prep_time: 40, price: 22, description: "The best Wiener Schnitzel in Berlin!.", restaurant: Restaurant.fourth, chef: Chef.fourth, menu_type: "Main Dish")
+meal7 = Meal.create(name: "Wiener Schnitzel", difficulty: 3, prep_time: 40, price: 22, description: "The best Wiener Schnitzel in Berlin!", restaurant: Restaurant.fourth, chef: Chef.fourth, menu_type: "Main Dish")
 meal7.photo.attach(io: photo7, filename: 'schnitzel.jpg', content_type: 'image/jpg')
 
 
@@ -153,7 +153,7 @@ MealCategory.create(meal: Meal.find_by(name: "Penne all'arrabbiata"), category: 
 MealCategory.create(meal: Meal.find_by(name: "Penne all'arrabbiata"), category: Category.find_by(name: "Vegetarian"))
 
 # Seventh meal
-MealCategory.create(meal: Meal.find_by(name: "Wiener schnitzel"), category: Category.find_by(name: "Egg"))
+MealCategory.create(meal: Meal.find_by(name: "Wiener Schnitzel"), category: Category.find_by(name: "Egg"))
 
 
 
