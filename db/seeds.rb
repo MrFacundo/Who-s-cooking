@@ -117,12 +117,13 @@ meal6.photo.attach(io: photo6, filename: 'penne.jpg', content_type: 'image/jpg')
 
 # Meals Chef 4 / Restaurant 4
 
-photo7 = URI.open('https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80')
+photo7 = URI.open('https://images.unsplash.com/photo-1560611588-163f295eb145?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')
 meal7 = Meal.create(name: "Wiener Schnitzel", difficulty: 3, prep_time: 40, price: 22, description: "The best Wiener Schnitzel in Berlin!", restaurant: Restaurant.fourth, chef: Chef.fourth, menu_type: "Main Dish")
 meal7.photo.attach(io: photo7, filename: 'schnitzel.jpg', content_type: 'image/jpg')
 
 
 #### Meal Categories
+
 puts "Creating meal categories..."
 
 # First meal
