@@ -144,14 +144,14 @@ MealCategory.create(meal: Meal.fourth, category: Category.last)
 
 # Fifth meal
 MealCategory.create(meal: Meal.find_by(name: "Tom Kha Kai"), category: Category.find_by(name: "Spicy"))
-MealCategory.create(meal: Meal.find_by(name: "Tom Kha Kai"), category: Category.find_by(name: "Vegetarian"))
+MealCategory.create(meal: Meal.find_by(name: "Tom Kha Kai"), category: Category.find_by(name: "Vegan"))
 
 # Sixth meal
 MealCategory.create(meal: Meal.find_by(name: "Tagliatelle al salmone e basilico"), category: Category.find_by(name: "Fish"))
 
 # Seventh meal
 MealCategory.create(meal: Meal.find_by(name: "Penne all'arrabbiata"), category: Category.find_by(name: "Spicy"))
-MealCategory.create(meal: Meal.find_by(name: "Penne all'arrabbiata"), category: Category.find_by(name: "Vegetarian"))
+MealCategory.create(meal: Meal.find_by(name: "Penne all'arrabbiata"), category: Category.find_by(name: "Vegan"))
 
 # Seventh meal
 MealCategory.create(meal: Meal.find_by(name: "Wiener Schnitzel"), category: Category.find_by(name: "Egg"))
