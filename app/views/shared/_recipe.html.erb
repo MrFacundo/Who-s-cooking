@@ -6,16 +6,25 @@
 </div>
   <div class="recipe">
     <h1><%= @meal.name %></h1>
+    <p><i>by <%= @meal.chef.first_name %> <%= @meal.chef.last_name %></i></p>
+    <div class="">
+      <% if @meal.chef.photo.attached? %>
+        <%= cl_image_tag @meal.chef.photo.key, class: "card-avatar-recipe", alt: "Meet your chef!", width: 200, height: 200, crop: 'fill', gravity: 'face' %>
+      <% else %>
+        <%= image_tag "chef1.jpg", class: "card-avatar-recipe", alt: "Meet your chef!" %>
+      <% end %>
+    </div>
     <% steps = @recipe.steps.sort_by { |s| s["name"] } %>
     <% steps.each do |s| %>
         <div class="recipe-step">
           <h2><%= s.name %></h2>
           <p><%= s.content %></p>
-          <div class="recipe-image">
+          <div>
             <% if s.photo.attached? %>
-              <%= cl_image_tag s.photo.key %>
+              <%= cl_image_tag s.photo.key,class: "recipe-image"%>
             <% end %>
           </div>
+    <div class=""></div>
         </div>
     <% end %>
   </div>
