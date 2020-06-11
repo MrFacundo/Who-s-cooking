@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     if @order.save
       @order.paid = true
       @order.save
-      redirect_to order_path(@order), notice: 'Order was successfully updated.'
+      redirect_to order_path(@order), notice: 'Order confirmed!'
     else
       render :update
     end
