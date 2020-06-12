@@ -11,7 +11,7 @@
       <div class="col-12 col-lg-8">
         <% @order.order_items.each do |oi| %>
           <div class="order-form">
-            <div>
+            <div style="width: 200px;">
             <p><strong><%= oi.meal.name %></strong></p>
             <p> With Chef <%= oi.meal.chef.first_name %></p>
             </div>
@@ -19,9 +19,9 @@
               <div class="d-inline-flex">
                 <%= f.input :quantity, label: false, class: "form-control" %>
                 <%= f.submit "Update", class: "form-control ml-3 mr-3"  %>
-                <%= button_to "Delete", order_item_path(oi), method: :delete, class: "form-control" %>
               </div>
             <% end %>
+            <%= button_to "Delete", order_item_path(oi), method: :delete, class: "form-control" %>
           </div>
         <% end %>
         <div class="mt-3">
