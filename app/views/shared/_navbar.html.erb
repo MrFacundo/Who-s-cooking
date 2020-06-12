@@ -31,7 +31,7 @@
           <%= link_to "Orders", orders_path, class: "nav-link"  %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "user.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "chef-hat.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= button_to "Sign Out",  destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to sign out?' }, style: "background-color: white; border: white"  %>
           </div>
