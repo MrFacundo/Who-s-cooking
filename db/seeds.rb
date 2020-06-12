@@ -84,15 +84,15 @@ puts "Creating meals..."
 # Meals Chef 1 / Restaurant 1
 
 photo1 = URI.open('https://storage.needpix.com/rsynced_images/tortelloni-2963581_1280.jpg')
-meal1 = Meal.create(name: "Agnolotti", difficulty: 3, prep_time: 80, price: 25, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish", video: 'https://player.vimeo.com/video/216445734')
+meal1 = Meal.create(name: "Agnolotti", difficulty: 3, prep_time: 80, price: 18, description: "Vegan Agnolotti with freshly picked mushrooms.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Main Dish", video: 'https://player.vimeo.com/video/216445734')
 meal1.photo.attach(io: photo1, filename: 'agnolotti.jpg', content_type: 'image/jpg')
 
 photo2 = URI.open('https://images.unsplash.com/photo-1574448857443-dc1d7e9c4dad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80')
-meal2 = Meal.create(name: "Garlic Herb Flatbread", difficulty: 2, prep_time: 75, price: 15, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter", video: 'https://player.vimeo.com/video/371813808')
+meal2 = Meal.create(name: "Garlic Herb Flatbread", difficulty: 2, prep_time: 75, price: 12, description: "Flatbread made with locally sourced flour.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Starter", video: 'https://player.vimeo.com/video/371813808')
 meal2.photo.attach(io: photo2, filename: 'flatbread.jpg', content_type: 'image/jpg')
 
 photo7 = URI.open('https://images.pexels.com/photos/3026810/pexels-photo-3026810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal7 = Meal.create(name: "Vegan chocolate mousse", difficulty: 2, prep_time: 40, price: 18, description: "Tasty chocolate mousse with only vegan ingredients. Perfect dessert for a summer day.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Dessert")
+meal7 = Meal.create(name: "Vegan chocolate mousse", difficulty: 2, prep_time: 40, price: 10, description: "Tasty chocolate mousse with only vegan ingredients. Perfect dessert for a summer day.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Dessert")
 meal7.photo.attach(io: photo7, filename: 'mousse.jpg', content_type: 'image/jpg')
 
 # Meals Chef 2 / Restaurant 2
@@ -108,7 +108,7 @@ meal4.photo.attach(io: photo4, filename: 'soup.jpg', content_type: 'image/jpg')
 # Meals Chef 3 / Restaurant 3
 
 photo5 = URI.open('https://images.pexels.com/photos/1256875/pexels-photo-1256875.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=940')
-meal5 = Meal.create(name: "Tagliatelle al salmone e basilico", difficulty: 2, prep_time: 30, price: 10, description: "Our homemade tagliatelle with fresh slamon from the coast of Denmark.", restaurant: Restaurant.third, chef: Chef.third, menu_type: "Main Dish")
+meal5 = Meal.create(name: "Tagliatelle al salmone e basilico", difficulty: 2, prep_time: 30, price: 12, description: "Our homemade tagliatelle with fresh slamon from the coast of Denmark.", restaurant: Restaurant.third, chef: Chef.third, menu_type: "Main Dish")
 meal5.photo.attach(io: photo5, filename: 'tagliatelle.jpg', content_type: 'image/jpg')
 
 photo6 = URI.open('https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
