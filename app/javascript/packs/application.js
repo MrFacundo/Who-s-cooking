@@ -21,14 +21,13 @@ import "../plugins/flatpickr.js"
 import "controllers";
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initInput } from '../components/card.js';
-import { clickableTabs } from '../plugins/clickable_tabs'
+import { clickableTabs } from '../components/clickable_tabs'
 
 $(document).ready(function(){
   setTimeout(function(){
   $('.alert').fadeOut();
   }, 3000);
 });
-
 
 
 
