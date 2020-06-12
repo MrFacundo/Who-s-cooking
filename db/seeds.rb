@@ -92,7 +92,7 @@ meal2 = Meal.create(name: "Garlic Herb Flatbread", difficulty: 2, prep_time: 75,
 meal2.photo.attach(io: photo2, filename: 'flatbread.jpg', content_type: 'image/jpg')
 
 photo7 = URI.open('https://images.pexels.com/photos/3026810/pexels-photo-3026810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
-meal7 = Meal.create(name: "Vegan chocolate mousse", difficulty: 2, prep_time: 40, price: 18, description: "Tasty chocolate mousse with only vegan ingredients. Perfect dessert for a summer day.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Dessert")
+meal7 = Meal.create(name: "Vegan chocolate mousse", difficulty: 2, prep_time: 40, price: 18, description: "Tasty chocolate mousse with only vegan ingredients. Perfect dessert for a summer day.", restaurant: Restaurant.first, chef: Chef.first, menu_type: "Dessert", video: 'https://player.vimeo.com/video/372327996')
 meal7.photo.attach(io: photo7, filename: 'mousse.jpg', content_type: 'image/jpg')
 
 # Meals Chef 2 / Restaurant 2
@@ -212,6 +212,25 @@ Lightly grease preheated skillet and lay down flatbread. Don’t touch, cook for
 Enjoy immediately, or let cool completely and store in a well-sealed bag or container up to 3 days (though best when fresh).",
     meal: Meal.find_by(name: "Garlic Herb Flatbread"))
 Sb2.photo.attach(io: Sb2photo, filename: 'sb1.jpg', content_type: 'image/jpg')
+
+
+
+#Chocolate mousse steps
+
+
+Sc1photo = URI.open('https://images.unsplash.com/photo-1587560555774-4063ddc3fe25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')
+Sc1 = Step.create(name: "Step 1: preparing the mixture", content: "In a small saucepan, combine the cocoa or cacao powder, carob powder, cocoa butter, salt, and coconut milk . Begin warming over medium-low heat, whisking to combine.
+Once the mixture is melted, add remaining coconut milk and whisk until fully combined. Then remove from heat and add vanilla and stevia to taste (or just add more dates).",
+    meal: Meal.find_by(name: "Vegan chocolate mousse"))
+Sc1.photo.attach(io: Sc1photo, filename: 'sc1.jpg', content_type: 'image/jpg')
+
+Sc2photo = URI.open('https://images.unsplash.com/photo-1548329408-0bcd6e68058d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')
+Sc2 = Step.create(name: "Step 2: serving the mousse", content: "Transfer the mixture to a blender. Add dates (start with 5 and increase to taste), and blend on high until creamy and smooth. Taste and adjust flavor as needed, adding more cacao powder for rich chocolate flavor, dates for sweetness, or sea salt for saltiness. Transfer to a bowl and cover. Refrigerate until cold and thickened - at least 4 hours, preferably overnight.
+To serve, enjoy as is or divide between serving glasses and top with coconut whipped cream, raspberries, and chopped vegan dark chocolate or cacao/cocoa powder.",
+    meal: Meal.find_by(name: "Vegan chocolate mousse"))
+Sc2.photo.attach(io: Sc2photo, filename: 'sc2.jpg', content_type: 'image/jpg')
+
+
 
 
 puts "Finished!"
