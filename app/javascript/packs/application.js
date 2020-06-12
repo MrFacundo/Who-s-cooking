@@ -21,6 +21,7 @@ import "../plugins/flatpickr.js"
 import "controllers";
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initInput } from '../components/card.js';
+import { clickableTabs } from '../plugins/clickable_tabs'
 
 $(document).ready(function(){
   setTimeout(function(){
@@ -28,11 +29,7 @@ $(document).ready(function(){
   }, 3000);
 });
 
-$(document).ready(function(){
-  $(".cuisine-choice").click(function(){
-    $(this).toggleClass("active");
-  });
-});
+
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -40,5 +37,6 @@ document.addEventListener('turbolinks:load', () => {
     // initSelect2();
     initAutocomplete();
     initInput();
+    clickableTabs();
 });
 
