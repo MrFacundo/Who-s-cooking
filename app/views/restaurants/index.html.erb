@@ -52,12 +52,12 @@
 
   <% if params[:query] == "Meals" %>
     <div class="container d-flex mt-5">
-      <div class="col-2">
+      <div class="col-2 mr-4">
         <%= simple_form_for "", url: restaurants_path, method: :get do |f| %>
           <%= f.input :cuisine, as: :hidden, input_html: { value: params[:cuisine]} %>
           <%= f.input :city, as: :hidden, input_html: { value: params[:city]} %>
           <%= f.input :query, as: :hidden, input_html: { value: params[:query]} %>
-          <%= f.input :price %>
+          <%= f.input :price, as: :range, required: :false, input_html: { min: '0', max: '80', step: 5 } %>
           <div class="d-flex justify-content-between"><p>15</p><p>80</p></div>
           <%= f.input :category, as: :radio_buttons, collection: @categories, :input_html => { :checked => false } %>
           <%= f.input :menu_type, as: :radio_buttons, collection: Meal::MENU %>
