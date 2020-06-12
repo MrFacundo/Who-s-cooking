@@ -68,6 +68,14 @@
   margin-bottom: 0 !important;
 }
 
+.fieldset.form-group.radio_buttons.required._category .abbr {
+  display: none;
+}
+
+.legend {
+  font-weight: bolder;
+}
+
 .restaurant {
   display: flex;
   justify-content: space-around;
